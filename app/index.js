@@ -118,7 +118,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 
 		// Copy project files
 		this.copy('index.html');
-		this.copy('gruntfile.js');
+		this.copy('Gruntfile.js');
 		this.copy('README.md');
 		this.copy('LICENSE.md');
 
