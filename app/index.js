@@ -125,6 +125,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		// Copy project hidden files
 		this.copy('bowerrc', '.bowerrc');
 		this.copy('editorconfig', '.editorconfig');
+		this.copy('jshintrc', '.jshintrc');
 	},
 
 	renderApplicationDependenciesFiles: function() {
