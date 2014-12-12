@@ -1,6 +1,6 @@
-# generator-angm [![Build Status](https://secure.travis-ci.org/neweonweb/generator-angm.svg?branch=master)](https://travis-ci.org/neweonweb/generator-angm)
+# Generator-angm [![Build Status](https://travis-ci.org/newaeonweb/generator-angm.svg?branch=master)](https://travis-ci.org/newaeonweb/generator-angm) 
 
-Modular Generator to scaffold modular AngularJS applications.
+Modular Yeoman Generator to scaffold modular AngularJS applications.
 
 > [Yeoman](http://yeoman.io) generator
 
