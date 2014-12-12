@@ -1,4 +1,4 @@
-# generator-angm [![Build Status](https://secure.travis-ci.org/neweonweb/generator-angm.png?branch=master)](https://travis-ci.org/neweonweb/generator-angm)
+# generator-angm [![Build Status](https://secure.travis-ci.org/neweonweb/generator-angm.svg?branch=master)](https://travis-ci.org/neweonweb/generator-angm)
 
 Modular Generator to scaffold modular AngularJS applications.
 
