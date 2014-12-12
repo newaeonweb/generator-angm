@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="<%= slugifiedAppName %>">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<base href="/">
+	<title>Ang-Generator.</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=yes" />
+	<link rel="shortcut icon" href="app/assets/images/favicon.ico" />
+	<link rel="apple-touch-icon" href="app/assets/images/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="app/assets/images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="app/assets/images/apple-touch-icon-114x114.png" />
+	<!-- injector:css -->
+	<link rel="stylesheet" href="/src/bower_components/bootstrap/dist/css/bootstrap.css">
+	<!-- endinjector -->
+</head>
+<body>
+
+<!--Beginning-->
+<section id="wrapper" scroll-to>
+	<div class="view-slide-in" ng-view="main-app"></div>
+</section>
+<!--End-->
+
+<!-- injector:js -->
+<script src="/src/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/src/bower_components/angular/angular.js"></script>
+<script src="/src/bower_components/json3/lib/json3.min.js"></script>
+<script src="/src/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/src/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/src/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/src/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/src/bower_components/angular-route/angular-route.js"></script>
+<script src="/src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/app/app.js"></script>
+<script src="/app/home/homeRoute.js"></script>
+<script src="/app/home/homeCtrl.js"></script>
+<!-- endinjector -->
+
+</body>
+</html>

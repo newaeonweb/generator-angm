@@ -1,0 +1,39 @@
+{
+  "name": "generator-angm",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "neweonweb/generator-angm",
+  "author": {
+    "name": "Fernando Monteiro",
+    "url": "https://github.com/newaeonweb/generator-angm"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.18.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "assert": "~1.1.1",
+    "async": "~0.9.0",
+    "fs-extra": "~0.10.0",
+    "temp": "~0.8.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
