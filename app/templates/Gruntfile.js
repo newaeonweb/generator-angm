@@ -1,28 +1,24 @@
-/* jshint node: true */
+// Grunt tasks
 
 module.exports = function (grunt) {
 	"use strict";
-
-	require('time-grunt')(grunt);
-	require('load-grunt-tasks')(grunt);
 
 	// Project configuration.
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
 		banner: '/*!\n' +
-			'* bi-Framework v<%= pkg.version %> - Direitos Reservados <%= grunt.template.today("dd") %> <%= grunt.template.today("mm") %> <%= grunt.template.today("yyyy") %>. \n' +
-			'* Uso Restrito a SSM - Sala de Situação Municipal.\n' +
+			'* <%= pkg.name %> - v<%= pkg.version %> - MIT LICENSE <%= grunt.template.today("yyyy-mm-dd") %>. \n' +
+			'* @author <%= pkg.author %>\n' +	
 			'*/\n',
-		jqueryCheck: 'if (!jQuery) { throw new Error(\"jQuery Ausente\") }\n\n',
 
 		clean: {
-			dist: ['public']
+			dist: ['src/tmp']
 		},
 
 		jshint: {
 			options: {
-				jshintrc: 'src/.jshintrc'
+				jshintrc: '.jshintrc'
 			},
 			gruntfile: {
 				src: 'Gruntfile.js'
@@ -30,32 +26,30 @@ module.exports = function (grunt) {
 			src: {
 				src: ['src/*.js']
 			},
-			test: {
-				src: ['src/tests/unit/*.js']
+			app: {
+				src: ['app/**/*.js']
 			}
 		},
 
 		concat: {
 			options: {
-				banner: '<%= banner %><%= jqueryCheck %>',
+				banner: '<%= banner %>',
 				stripBanners: false
 			},
 			base: {
 				src: [
-					//'src/styler.js',
-					'src/scrollTop.js'
+					// Angular Project Dependencies,
+					'src/bower_components/angular/angular.js',
+					'src/bower_components/angular-resource/angular-resource.js',
+					'src/bower_components/angular-mocks/angular-mocks.js',
+					'src/bower_components/angular-cookies/angular-cookies.js',
+					'src/bower_components/angular-animate/angular-animate.js',
+					'src/bower_components/angular-touch/angular-touch.js',
+					'src/bower_components/angular-sanitize/angular-sanitize.js',
+					'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+					'src/bower_components/angular-route/angular-route.js'
 				],
-				dest: 'public/js/<%= pkg.name %>-script.js'
-			},
-			kendo: {
-				src: [
-					'libs/kendo/kendo.web.js',
-					'libs/kendo/kendo.dataviz.js',
-					'libs/kendo/cultures/kendo.culture.pt-BR.js',
-					'libs/kendo/cultures/kendo.messages.pt-BR.js'
-					//'libs/kendo/kendo.mobile.js'
-				],
-				dest: 'public/js/vendors/kendo.<%= pkg.name %>.js'
+				dest: 'src/tmp/<%= pkg.name %>-angscript.js'
 			}
 		},
 
@@ -66,60 +60,14 @@ module.exports = function (grunt) {
 			},
 			base: {
 				src: ['<%= concat.base.dest %>'],
-				dest: 'public/js/<%= pkg.name %>-script.min.js'
+				dest: 'app/assets/js/<%= pkg.name %>-angscript.min.js'
 			},
 			basePlugin: {
-				src: [ 'libs/plugins/*.js' ],
-				dest: 'public/js/plugins/',
+				src: [ 'src/plugins/**/*.js' ],
+				dest: 'app/assets/js/plugins/',
 				expand: true,
 				flatten: true,
 				ext: '.min.js'
-			},
-			kendomin: {
-				src: ['<%= concat.kendo.dest %>'],
-				dest: 'public/js/vendors/kendo.bi-framework.min.js'
-			}
-		},
-
-		recess: {
-			options: {
-				compile: true,
-				banner: '<%= banner %>'
-			},
-			style: {
-				options: {
-					compress: false
-				},
-				src: ['less/style.less'],
-				dest: 'public/css/<%= pkg.name %>-style.css'
-			},
-			style_min: {
-				options: {
-					compress: true
-				},
-				src: ['less/style.less'],
-				dest: 'public/css/<%= pkg.name %>-style.min.css'
-			},
-			theme_min: {
-				options: {
-					compress: true
-				},
-				src: ['less/theme/theme.less'],
-				dest: 'public/css/<%= pkg.name %>-theme.min.css'
-			}
-		},
-
-		copy: {
-			fonts: {
-				expand: true,
-				src: ["fonts/*"],
-				dest: 'public/'
-			},
-			vendors: {
-				cwd: 'libs/vendors',
-				src: '**/*',
-				dest: 'public/js/vendors',
-				expand: true
 			}
 		},
 
@@ -127,24 +75,36 @@ module.exports = function (grunt) {
 			server: {
 				options: {
 					keepalive: true,
-					port: 3000,
-					base: '.'
+					port: 8000,
+					base: '.',
+					hostname: 'localhost',
+					debug: true,
+					livereload: true,
+					open: true
 				}
+			}
+		},
+		concurrent: {
+			tasks: ['connect', 'watch'],
+			options: {
+				logConcurrentOutput: true
 			}
 		},
 
 		watch: {
 			src: {
 				files: '<%= jshint.src.src %>',
-				tasks: ['jshint:src']
+				tasks: ['jshint:src'],
+				options: {
+					livereload: true
+				}
 			},
-			test: {
-				files: '<%= jshint.test.src %>',
-				tasks: ['jshint:test']
-			},
-			recess: {
-				files: 'less/*.less',
-				tasks: ['recess']
+			app: {
+				files: '<%= jshint.app.src %>',
+				tasks: ['jshint:app'],
+				options: {
+					livereload: true
+				}
 			}
 		},
 
@@ -162,27 +122,26 @@ module.exports = function (grunt) {
 				}
 			}
 		}
-    
+	
 
 	});
 
-	// These plugins provide necessary tasks.
-	grunt.loadTasks('tasks');
+	require('time-grunt')(grunt);
+	require('load-grunt-tasks')(grunt);
+	
+	// Making grunt default to force in order not to break the project if something fail.
+	grunt.option('force', true);
 
 	// Register grunt tasks
-	grunt.registerTask("default", [
-		"clean",
+	grunt.registerTask("build", [
 		"jshint",
 		"concat",
 		"uglify",
-		"recess",
-		"copy",
-		"docs"
+		"clean",
+		"injector"
 	]);
 
-	grunt.registerTask("dev", [
-		"watch",
-		"connect"
-	]);
+	// Development task(s).
+	grunt.registerTask('dev', ['injector', 'concurrent']);
 
 };

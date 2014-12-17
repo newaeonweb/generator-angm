@@ -11,26 +11,11 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		// read the local package file
 		this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
 
-		// invoke npm install on finish
-		this.on('end', function(callback) {
-			//if (!this.options['skip-install']) {
-				
-				this.installDependencies({
-					bower: true,
-					npm: true,
-					skipInstall: false,
- 					callback: function () {
- 						console.log('Everything is ready!');
-	      			}
- 				});
-			//}
-		});
-
 		// have Yeoman greet the user
 		console.log(this.yeoman);
 
-		// replace it with a short and sweet description of your generator
-		console.log(chalk.magenta('You\'re using the official Angmodular generator.'));
+		// Generator description
+		console.log(chalk.yellow('You\'re using the official Angm-generator.'));
 	},
 
 	askForApplicationDetails: function() {
@@ -43,14 +28,15 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		}, {
 			name: 'appDescription',
 			message: 'How would you describe your application?',
-			default: 'Modular AngularJS with Angmodular generator'
+			default: 'Modular AngularJS with Angm-generator'
 		}, {
 			name: 'appKeywords',
 			message: 'How would you describe your application in comma seperated key words?',
 			default: 'AngularJS, Yeoman-Generator'
 		}, {
 			name: 'appAuthor',
-			message: 'What is your company/author name?'
+			message: 'What is your company/author name?',
+			default: 'Angmodular'
 		}];
 
 		this.prompt(prompts, function(props) {
@@ -109,6 +95,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.mkdir('app/home');
 		this.mkdir('app/assets/images');
 		this.mkdir('src/bower_components');
+		this.mkdir('src/plugins');
 
 		//Copy home folder content
 		this.copy('app/app.js');
@@ -117,7 +104,6 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.copy('app/home/homeRoute.js');
 
 		// Copy project files
-		this.copy('index.html');
 		this.copy('Gruntfile.js');
 		this.copy('README.md');
 		this.copy('LICENSE.md');
@@ -131,7 +117,22 @@ var AngmGenerator = yeoman.generators.Base.extend({
 	renderApplicationDependenciesFiles: function() {
 		this.template('_package.json', 'package.json');
 		this.template('_bower.json', 'bower.json');
-	}
+		this.template('_index.html', 'index.html');
+	},
+
+	install: function () {
+		var done = this.async();
+
+	    this.installDependencies({
+	      skipInstall: this.options['skip-install'],
+	      bower: false
+	    });
+    	
+    	done();
+
+    	this.spawnCommand('grunt', ['dev']);
+
+  	}
 
 });
 

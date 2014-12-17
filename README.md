@@ -2,7 +2,9 @@
 
 Modular Yeoman Generator to scaffold modular AngularJS applications.
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) Generator-angm
+
+# Work in progress...be careful to use it.
 
 
 ## Getting Started
@@ -10,8 +12,6 @@ Modular Yeoman Generator to scaffold modular AngularJS applications.
 ### What is Yeoman?
 
 Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
 
 Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
 
@@ -37,7 +37,7 @@ Finally, initiate the generator:
 yo angm
 ```
 
-### Getting To Know Yeoman
+### Getting starting...
 
 Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
 
