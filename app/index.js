@@ -125,7 +125,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 
 	    this.installDependencies({
 	      skipInstall: this.options['skip-install'],
-	      bower: false
+	      bower: true
 	    });
     	
     	done();
