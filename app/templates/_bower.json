@@ -15,6 +15,9 @@
 	"angular-sanitize": "~1.2",<% } %>
 	"angular-bootstrap": "~0.11.2",
 	"angular-route": "1.2.24"
+  },
+  "resolutions": {
+    "angular": "1.2.28"
   }
 }
 
