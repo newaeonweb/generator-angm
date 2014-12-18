@@ -6,6 +6,12 @@ Modular Yeoman Generator to scaffold modular AngularJS applications.
 
 # Work in progress...be careful to use it.
 
+## Warning (Trobleshooting)
+On first install, some times Grunt.js fail to initiate, if this happens to you, run the following command:
+
+```bash
+grunt dev
+```
 
 ## Getting Started
 
