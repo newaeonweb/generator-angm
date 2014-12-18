@@ -9,9 +9,7 @@ Modular Yeoman Generator to scaffold modular AngularJS applications.
 ## Warning (Trobleshooting)
 On first install, some times Grunt.js fail to initiate, if this happens to you, run the following command:
 
-```bash
-grunt dev
-```
+
 
 ## Getting Started
 
@@ -39,11 +37,14 @@ yo angm
 ```
 
 ## Running
-After `yo angm` command your application should start right in your default browser at localhost:8000.
+Open your terminal window and type:
+
+```bash
+grunt dev
+```
+
+After the command your application should start right in your default browser at `localhost:8000`.
 The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and others.
-
-
-
 
 ## SubGenerators
 

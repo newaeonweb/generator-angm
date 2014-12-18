@@ -121,22 +121,14 @@ var AngmGenerator = yeoman.generators.Base.extend({
 	},
 
 	install: function () {
-		var done = this.async();
 
 	    this.installDependencies({
 	      skipInstall: this.options['skip-install'],
 	      bower: true
 	    });
-    	
-    	done();
-
-    	this.spawnCommand('grunt', ['dev']);
-
   	}
 
 });
-
-
 
 module.exports = AngmGenerator;
 
