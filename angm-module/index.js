@@ -49,6 +49,12 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 		if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
 		if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');		
 		
+	},
+
+	updateAppFile: function() {
+		var ap = this.config.get('appName');
+
+		console.log(ap);
 	}
 });
 

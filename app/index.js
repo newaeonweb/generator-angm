@@ -49,6 +49,8 @@ var AngmGenerator = yeoman.generators.Base.extend({
 	  	this.humanizedAppName = this._.humanize(this.appName);
 	  	this.capitalizedAppAuthor = this._.capitalize(this.appAuthor);
 
+	  	this.config.set('appName', this.slugifiedAppName);
+
 	  	done();
 		}.bind(this));
 	},
