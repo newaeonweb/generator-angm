@@ -87,6 +87,11 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.angularTouch = this._.contains(props.modules, 'angularTouch');
 		this.angularSanitize = this._.contains(props.modules, 'angularSanitize');
 
+		this.config.set('angularCookies', this.angularCookies);
+		this.config.set('angularAnimate', this.angularAnimate);
+		this.config.set('angularTouch', this.angularTouch);
+		this.config.set('angularSanitize', this.angularSanitize);
+
 		done();
 		}.bind(this));
   	},
