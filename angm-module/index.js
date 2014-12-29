@@ -18,6 +18,25 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 		this.angularTouch = this.config.get('angularTouch');
 		this.angularSanitize = this.config.get('angularSanitize');
 
+		this.modules = this.config.get('modules');
+
+
+
+		for (var i = 0; i < this.modules.length; i++) {
+			console.log(this.modules[i].name);
+			
+			if (this.modules[i].name == this.slugifiedName) {
+
+				return this.log.writeln(chalk.red(' name already exists'));
+			
+			} else {
+
+				this.modules.push({name:this.slugifiedName});
+
+				this.config.set('modules', this.modules);
+			}
+		};
+
 	},
 
 	askForModuleFolders: function() {
@@ -63,27 +82,37 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 	},
 
 	updateAppFile: function() {
-		//this.nameApp = this.config.get('appName');
+		this.nameApp = this.config.get('appName');
 
-		var modules = this.config.get('modules');
+			// var modules = this.config.get('modules');
 
-		var getName = this.config.get('modules.name[0]');
+			// if (!modules) {
+			// 	modules = [];
+			// }
 
-		if (this.slugifiedName == getName) {
-	    	this.log.writeln(chalk.green(' name already exist'));
-	    }
-	    
+			// modules.push({name:this.slugifiedName});
 
-	    // if (!modules) {
-	    //     modules = [];
-	    // }
-	    
-    	
-    	modules.push({name:this.slugifiedName});
-    	
-    	this.config.set('modules', modules);
-		
+			// var m = this.config.get('modules');
+
+			// for (var i = 0; i < m.length; i++) {
+			// 	console.log(m[i].name);
+				
+			// 	if (m[i].name == this.slugifiedName) {
+			// 		console.log('igual');
+
+			// 		return this.log.writeln(chalk.red(' name already exists'));
+				
+			// 	} else {
+
+			// 		this.config.set('modules', modules);
+			// 	}
+			// };
+
+			
+
 		this.template('_app.js','app/app.js');
+		
+		
 	}
 });
 
