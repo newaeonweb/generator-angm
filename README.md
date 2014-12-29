@@ -4,16 +4,9 @@ Modular Yeoman Generator to scaffold modular AngularJS applications.
 
 > [Yeoman](http://yeoman.io) Generator-angm
 
-# Work in progress...be careful to use it.
-
-## Warning (Trobleshooting)
-On first install, some times Grunt.js fail to initiate, if this happens to you, run the following command:
-
-
-
 ## Getting Started
 
-#### Installing Yeoman?
+#### Installing Yeoman
 Open your terminal window and type:
 
 ```bash
@@ -47,11 +40,11 @@ After the command your application should start right in your default browser at
 The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and others.
 
 ## SubGenerators
+Generator-angm have a subgenerator to create your application modules
 
-Up coming subgenerators:
+* yo angm:angm-module
 
-* yo angm:module `<modulename>`
-
+After that you must entre the module name and choose what files you want.
 The subgenerator will produce the following directory structure:
 
 ```
@@ -59,7 +52,6 @@ The subgenerator will produce the following directory structure:
 		moduleName.html
 		moduleNameCtrl.js
 		moduleNameRoute.js
-		moduleNameService.js
 ```
 
 **Note: Subgenerators are to be run from the root directory of your app.**
@@ -67,7 +59,7 @@ The subgenerator will produce the following directory structure:
 
 #### File Content
 ##### View (Html Template)
-File: `app/moduleName/moduleName.html`.
+File: `app/modules/moduleName/moduleName.html`.
 
 Code:
 ```html
@@ -78,7 +70,7 @@ Code:
 ---
 ##### Controller
 
-File: `app/moduleName/moduleNameCtrl.js`.
+File: `app/modules/moduleName/moduleNameCtrl.js`.
 
 Code:
 ```javascript
@@ -101,7 +93,7 @@ angular.module('appName')
 
 ##### Route
 
-File: `app/moduleName/moduleNameRoute.js`.
+File: `app/modules/moduleName/moduleNameRoute.js`.
 
 Code:
 ```javascript
@@ -118,45 +110,15 @@ angular.module('appName')
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: 'appName/moduleName/moduleName.html',
+				templateUrl: 'appName/modules/moduleName/moduleName.html',
 				controller: 'moduleNameCtrl'
 			});
 	});
 ```
 ---
 
-##### Service
-
-File: `app/moduleName/moduleNameService.js`.
-
-Code:
-```javascript
-'use strict';
-
-/**
- * @ngdoc function
- * @name appName.service:moduleNameService
- * @description
- * # moduleNameService
- * Service of the appName
- */
-angular.module('appName')
-	.factory('moduleName', function ($resource) {
-
-	});
-	
-You can also do `yo angm:factory` or `yo angm:service` for other types of services.
-
-angular.module('appName')
-	.service('moduleName', function ($resource) {
-
-	});
-```
----
-
 ##### Injector
-By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that
-you must run `grunt injector` every time you add a new script.
+By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module or script.
 
 
 ## Bower Components
