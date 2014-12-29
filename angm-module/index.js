@@ -5,7 +5,7 @@ var util = require('util'),
 	yeoman = require('yeoman-generator');
 
 
-var ModuleGenerator = yeoman.generators.NamedBase.extend({
+var ModuleGenerator = yeoman.generators.Base.extend({
 	init: function() {
 		this.slugifiedName = this._.slugify(this._.humanize(this.name));
 		
@@ -18,25 +18,44 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 		this.angularTouch = this.config.get('angularTouch');
 		this.angularSanitize = this.config.get('angularSanitize');
 
-		this.modules = this.config.get('modules');
+	},
+
+	askForModuleNames: function() {
+		var done = this.async();
+
+		var prompts = [{
+			name:'moduleName',
+            message:'What would you like to call the module ?',
+            default: 'module name must be here'
+		}];
+
+		this.prompt(prompts, function(props) {
+			this.moduleName = props.moduleName;
+
+			this.slugifiedName = this._.slugify(this.moduleName);
+
+			this.modules = this.config.get('modules');
 
 
+			for (var i = 0; i < this.modules.length; i++) {
 
-		for (var i = 0; i < this.modules.length; i++) {
-			console.log(this.modules[i].name);
-			
-			if (this.modules[i].name == this.slugifiedName) {
+				this.listModules = this.modules[i].name
 
-				return this.log.writeln(chalk.red(' name already exists'));
-			
-			} else {
+			};
 
-				this.modules.push({name:this.slugifiedName});
+			if (this.slugifiedName === this.listModules ) {
 
-				this.config.set('modules', this.modules);
-			}
-		};
+					return this.log.writeln(chalk.red(' Module name already exists'));
+				
+				} else {
 
+					this.modules.push({name:this.slugifiedName});
+
+					this.config.set('modules', this.modules);
+				}
+
+			done();
+		}.bind(this));
 	},
 
 	askForModuleFolders: function() {
@@ -84,35 +103,10 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
 	updateAppFile: function() {
 		this.nameApp = this.config.get('appName');
 
-			// var modules = this.config.get('modules');
-
-			// if (!modules) {
-			// 	modules = [];
-			// }
-
-			// modules.push({name:this.slugifiedName});
-
-			// var m = this.config.get('modules');
-
-			// for (var i = 0; i < m.length; i++) {
-			// 	console.log(m[i].name);
-				
-			// 	if (m[i].name == this.slugifiedName) {
-			// 		console.log('igual');
-
-			// 		return this.log.writeln(chalk.red(' name already exists'));
-				
-			// 	} else {
-
-			// 		this.config.set('modules', modules);
-			// 	}
-			// };
-
-			
+		this.arrayModules = this.config.get('modules');	
 
 		this.template('_app.js','app/app.js');
-		
-		
+				
 	}
 });
 

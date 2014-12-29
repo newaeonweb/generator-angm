@@ -6,18 +6,20 @@
  * @description
  * # app
  *
- * Main module of the application.
+ * Main modules of the application.
  */
-angular.module('<%= slugifiedName %>',[]);
+<% _.each(arrayModules, function(module) { %>
+angular.module('<%= module.name %>',[]);
+<% }); %>
 
 var app = angular.module('<%= nameApp %>', [
     'ngResource',
-    <% if (angularCookies) { %> 'ngCookies', 
-    <% } if (angularAnimate) { %> 'ngAnimate', 
-    <% } if (angularTouch) { %> 'ngTouch', 
-    <% } if (angularSanitize) { %> 'ngSanitize', 
-    <% } %> 'ngRoute',
-    '<%= slugifiedName %>'
+    <% if (angularCookies) { %>'ngCookies', 
+    <% } if (angularAnimate) { %>'ngAnimate', 
+    <% } if (angularTouch) { %>'ngTouch', 
+    <% } if (angularSanitize) { %>'ngSanitize', 
+    <% } %>'ngRoute',<% _.each(arrayModules, function(module) { %>
+    '<%= module.name %>',<% }); %>
 ]);
 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
