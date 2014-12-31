@@ -441,3 +441,23 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+
+/* video style */
+
+video, .video { 
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+
+@media screen and (min-width: 768px)
+.modal-dialog {
+    width: 100%;
+    margin: 30px auto;
+}
