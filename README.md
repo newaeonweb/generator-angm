@@ -63,7 +63,7 @@ File: `app/modules/moduleName/moduleName.html`.
 
 Code:
 ```html
-<div ng-controler="moduleName">
+<div ng-controller="moduleName">
 	
 </div>
 ```
@@ -109,7 +109,7 @@ Code:
 angular.module('appName')
 	.config(function ($routeProvider) {
 		$routeProvider
-			.when('/', {
+			.when('/moduleName', {
 				templateUrl: 'appName/modules/moduleName/moduleName.html',
 				controller: 'moduleNameCtrl'
 			});
