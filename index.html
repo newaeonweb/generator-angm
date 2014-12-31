@@ -58,7 +58,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal1" class="portfolio-link" id="01">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -124,6 +124,28 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script src="js/bootstrap-dialog.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#01').on('click', function(){
+            
+            BootstrapDialog.show({
+            title: 'Getting Started',
+            message: function(dialog) {
+                var $message = $('<div></div>');
+                var pageToLoad = dialog.getData('pageToLoad');
+                $message.load(pageToLoad);
+        
+                return $message;
+            },
+            data: {
+                'pageToLoad': 'videos/01/01.html'
+            }
+        });
+        });
+    })
+
+    </script>
 
 </body>
 
