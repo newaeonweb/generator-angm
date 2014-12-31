@@ -58,13 +58,13 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" id="01">
+                    <a href="#portfolioModal1" class="portfolio-link"  data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/video/cabin.png" class="img-responsive" alt="">
+                        <img src="img/video/01.png" class="img-responsive" alt="How to Install">
                     </a>
                 </div>
             </div>
@@ -100,7 +100,11 @@
                         <div class="modal-body">
                             <h2>Getting Started</h2>
                             <hr class="star-primary">
-                            <img src="img/video/cabin.png" class="img-responsive img-centered" alt="">
+                            <video autoplay poster="videos/01/01.files/html5video/01-final.jpg" id="bgvid" controls>
+<!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button -->
+<source src="videos/01/01.files/html5video/01-final.webm" type="video/webm">
+<source src="videos/01/01.files/html5video/01-final.m4v" type="video/m4v">
+</video>
                             <p>How to download and install the Angm-Generator.</p>
                             <ul class="list-inline item-details">
                                 <li>Level:
@@ -124,29 +128,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.min.js"></script>
     <script src="js/scripts.min.js"></script>
-    <script src="js/bootstrap-dialog.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $('#01').on('click', function(){
-            
-            BootstrapDialog.show({
-            title: 'Getting Started',
-            message: function(dialog) {
-                var $message = $('<div></div>');
-                var pageToLoad = dialog.getData('pageToLoad');
-                $message.load(pageToLoad);
-        
-                return $message;
-            },
-            data: {
-                'pageToLoad': 'videos/01/01.html'
-            }
-        });
-        });
-    })
-
-    </script>
-
+    
 </body>
 
 </html>
