@@ -52,6 +52,7 @@ The subgenerator will produce the following directory structure:
 		moduleName.html
 		moduleNameCtrl.js
 		moduleNameRoute.js
+		moduleName-test.js
 ```
 
 **Note: Subgenerators are to be run from the root directory of your app.**
@@ -143,9 +144,26 @@ The following modules are optional on first install:
 
 All of these can be updated with `bower update` as new versions of AngularJS are released.
 
+
 ## Testing
 
-Coming soon.
+We implemented only one kind of test at this moment: Unit tests. On next weeks e2e tests will be available too.
+
+### Running Tests
+
+The tests are written in [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma configuration file pre-configured with some default options to run them.
+
+* the configuration is found at `karma.conf.js`
+* the unit tests are found on each module created named as `moduleName-test.js`.
+
+The easiest way to run the unit tests is to use the supplied npm script on `package.json` file:
+
+```
+npm test
+```
+
+This script will start the Karma test runner to execute the unit tests.
+
 
 ## Contribute
 
