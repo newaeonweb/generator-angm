@@ -8,7 +8,7 @@
  * Controller of the app
  */
 angular.module('<%= slugifiedName %>')
-	.controller('<%= slugifiedName %>Ctrl', ['$scope', function ($scope) {
+	.controller('<%= slugifiedNameCapitalize %>Ctrl', ['$scope', function ($scope) {
 
 
 	}]);

@@ -13,6 +13,6 @@ angular.module('<%= slugifiedName %>')
 		$routeProvider
 			.when('/<%= slugifiedName %>', {
 				templateUrl: 'app/modules/<%= slugifiedName %>/<%= slugifiedName %>.html',
-				controller: '<%= slugifiedName %>Ctrl'
+				controller: '<%= slugifiedNameCapitalize %>Ctrl'
 			});
 	});

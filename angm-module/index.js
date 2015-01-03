@@ -34,6 +34,8 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 
 			this.slugifiedName = this._.slugify(this.moduleName);
 
+			this.slugifiedNameCapitalize = this._.capitalize(this.moduleName);
+
 			this.modules = this.config.get('modules');
 
 
@@ -96,7 +98,9 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 		// Render angular module definition
 		if (this.addControllerFile) this.template('_controller.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Ctrl.js');
 		if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
-		if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');		
+		if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
+
+		this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');		
 		
 	},
 
