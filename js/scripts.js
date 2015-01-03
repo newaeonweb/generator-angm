@@ -29,3 +29,18 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// get stars and forks from github
+$.ajax({
+    dataType : "jsonp",
+    url : "https://api.github.com/repos/newaeonweb/generator-angm?callback=ukghapi&nocache="+Math.random(),
+    success : function(data){
+        if(!data) return;
+        if(data.data.watchers){
+            $("[data-krack-stargazers]").html(data.data.watchers);
+        }
+        if(data.data.forks){
+            $("[data-krack-forks]").html(data.data.forks);
+        }
+    }
+});

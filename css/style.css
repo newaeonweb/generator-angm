@@ -461,3 +461,29 @@ video, .video {
     width: 100%;
     margin: 30px auto;
 }
+.download {
+    margin: 20px auto;
+}
+
+.github-actions {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    vertical-align: middle;
+    text-align: center; 
+}
+
+.github-actions a, .github-actions a:hover{
+    color: #ffffff;
+}
+.github-actions-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.github-actions-nav li {
+    display: inline;
+}
+.github-page {
+width: 260px;
+margin: 30px auto;
+}
