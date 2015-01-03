@@ -114,6 +114,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.copy('Gruntfile.js');
 		this.copy('README.md');
 		this.copy('LICENSE.md');
+		this.copy('karma.conf.js');
 
 		// Copy project hidden files
 		this.copy('bowerrc', '.bowerrc');
@@ -125,6 +126,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.template('_package.json', 'package.json');
 		this.template('_bower.json', 'bower.json');
 		this.template('_index.html', 'index.html');
+		this.template('app/home/_home-test.js', 'app/home/home-test.js');
 	},
 
 	install: function () {

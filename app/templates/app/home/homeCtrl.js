@@ -9,6 +9,6 @@
  */
 angular.module('<%= slugifiedAppName %>')
 	.controller('HomeCtrl', ['$scope', function ($scope) {
-
+		$scope.title = "Hello, Angm-Generator!";
 
 	}]);
