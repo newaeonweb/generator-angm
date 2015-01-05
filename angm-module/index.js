@@ -38,6 +38,9 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 
 			this.modules = this.config.get('modules');
 
+			if (!this.modules) {
+        		this.modules = [];
+    		}
 
 			for (var i = 0; i < this.modules.length; i++) {
 
