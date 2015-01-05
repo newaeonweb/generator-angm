@@ -46,18 +46,19 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 
 				this.listModules = this.modules[i].name
 
-			};
+				console.log(this.listModules);
 
-			if (this.slugifiedName === this.listModules ) {
+				if (this.slugifiedName === this.listModules ) {
 
 					return this.log.writeln(chalk.red(' Module name already exists'));
 				
-				} else {
-
-					this.modules.push({name:this.slugifiedName});
-
-					this.config.set('modules', this.modules);
 				}
+			};
+
+			this.modules.push({name:this.slugifiedName});
+
+			this.config.set('modules', this.modules);
+
 
 			done();
 		}.bind(this));

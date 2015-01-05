@@ -24,7 +24,8 @@ module.exports = function(config) {
 			'app/app.js',
 			'app/home/homeCtrl.js',
 			'app/home/homeRoute.js',
-			'app/home/home-test.js'
+			'app/home/home-test.js',
+			'app/modules/**/*.js'
 		],
 
 		// Test results reporter to use
