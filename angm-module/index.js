@@ -8,7 +8,7 @@ var util = require('util'),
 var ModuleGenerator = yeoman.generators.Base.extend({
 	init: function() {
 		this.slugifiedName = this._.slugify(this._.humanize(this.name));
-		
+
 		// Get app name from config.
 		this.nameApp = this.config.get('appName');
 
@@ -25,7 +25,7 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 
 		var prompts = [{
 			name:'moduleName',
-            message:'What would you like to call the module ?',
+            message:'What would you like to call the module?',
             default: 'module name must be here'
 		}];
 
@@ -51,14 +51,13 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 				if (this.slugifiedName === this.listModules ) {
 
 					return this.log.writeln(chalk.red(' Module name already exists'));
-				
+
 				}
 			};
 
 			this.modules.push({name:this.slugifiedName});
 
 			this.config.set('modules', this.modules);
-
 
 			done();
 		}.bind(this));
@@ -104,17 +103,17 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 		if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
 		if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
 
-		this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');		
-		
+		this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
+
 	},
 
 	updateAppFile: function() {
 		this.nameApp = this.config.get('appName');
 
-		this.arrayModules = this.config.get('modules');	
+		this.arrayModules = this.config.get('modules');
 
 		this.template('_app.js','app/app.js');
-				
+
 	}
 });
 
