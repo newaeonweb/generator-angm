@@ -23,11 +23,8 @@ module.exports = function (grunt) {
 			gruntfile: {
 				src: 'Gruntfile.js'
 			},
-			src: {
-				src: ['src/*.js']
-			},
 			app: {
-				src: ['app/**/*.js']
+				src: ['app/modules/**/*.js']
 			}
 		},
 

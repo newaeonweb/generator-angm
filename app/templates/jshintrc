@@ -15,14 +15,17 @@
 	"undef": true,
 	"unused": false,
 	"strict": true,
-	"trailing": true,
+	"trailing": false,
 	"smarttabs": true,
 	"white": true,
 	"globals": {
 		"browser": false,
-		"define": false,
-		"$": false,
-		"jQuery": false,
+		"describe": false,
+		"beforeEach": false,
+		"inject": false,
+		"expect": false,
+		"it": false,
+		"angular": false,
 		"window": false,
 		"app": false
 	}

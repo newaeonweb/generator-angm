@@ -82,6 +82,10 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 				value: 'addTplFile',
 				name: 'View (HTML)',
 				checked: true
+			},{
+				value: 'addServiceFile',
+				name: 'Service',
+				checked: true
 			}]
 		}];
 
@@ -89,6 +93,7 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 			this.addControllerFile = this._.contains(props.folders, 'addControllerFile');
 			this.addRouteFile = this._.contains(props.folders, 'addRouteFile');
 			this.addTplFile = this._.contains(props.folders, 'addTplFile');
+			this.addServiceFile = this._.contains(props.folders, 'addServiceFile');
 
 			done();
 		}.bind(this));
@@ -102,6 +107,7 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 		if (this.addControllerFile) this.template('_controller.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Ctrl.js');
 		if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
 		if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
+		if (this.addServiceFile) this.template('_service.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Service.js');
 
 		this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
 

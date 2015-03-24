@@ -8,16 +8,17 @@
  *
  * Main module of the application.
  */
-var app = angular.module('<%= slugifiedAppName %>', [
+angular.module('<%= slugifiedAppName %>', [
     'ngResource',
-    <% if (angularCookies) { %> 'ngCookies', 
-    <% } if (angularAnimate) { %> 'ngAnimate', 
-    <% } if (angularTouch) { %> 'ngTouch', 
-    <% } if (angularSanitize) { %> 'ngSanitize', 
-    <% } %> 'ngRoute'
-]);
+    'ui.bootstrap',
+    <% if (angularCookies) { %>'ngCookies',
+    <% } if (angularAnimate) { %>'ngAnimate',
+    <% } if (angularTouch) { %>'ngTouch',
+    <% } if (angularSanitize) { %>'ngSanitize',
+    <% } %>'ngRoute'
+])
 
-app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
 
     $locationProvider.hashPrefix('!');
 
@@ -29,12 +30,12 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
             redirectTo: '/'
         });
         
-}]);
+}])
 
-app.run(['$rootScope', function ($rootScope) {
+.run(['$rootScope', function ($rootScope) {
     
     'use strict';
 
-    console.log('Angular.js run() function...');
+    console.log('AngularJS run() function...');
 
 }]);
