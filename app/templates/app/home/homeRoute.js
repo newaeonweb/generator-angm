@@ -9,10 +9,10 @@
  */
 
 angular.module('<%= slugifiedAppName %>')
-	.config(function ($routeProvider) {
+	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
 			.when('/', {
 				templateUrl: 'app/home/home.html',
 				controller: 'HomeCtrl'
 			});
-	});
+	}]);
