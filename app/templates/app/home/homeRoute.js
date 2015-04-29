@@ -9,9 +9,10 @@
  */
 
 angular.module('<%= slugifiedAppName %>')
-	.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/', {
+	.config(['$stateProvider', function ($stateProvider) {
+		$stateProvider
+			.state('home', {
+				url: '/',
 				templateUrl: 'app/home/home.html',
 				controller: 'HomeCtrl'
 			});

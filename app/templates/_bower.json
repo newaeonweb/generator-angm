@@ -6,18 +6,17 @@
     "json3": "3.3.1",
     "es5-shim": "3.1.0",
   	"bootstrap": "~3",
-	"angular": "~1.2",
-	"angular-resource": "~1.2",
-	"angular-mocks": "~1.2",<% if (angularCookies) { %>
-	"angular-cookies": "~1.2",<% } if (angularAnimate) { %>
-	"angular-animate": "~1.2",<% } if (angularTouch) { %>
-	"angular-touch": "~1.2",<% } if (angularSanitize) { %>
-	"angular-sanitize": "~1.2",<% } %>
+	"angular": ">=1.3.*",
+	"angular-resource": ">=1.3.*",
+	"angular-mocks": ">=1.3.*",<% if (angularCookies) { %>
+	"angular-cookies": ">=1.3.*",<% } if (angularAnimate) { %>
+	"angular-animate": ">=1.3.*",<% } if (angularTouch) { %>
+	"angular-touch": ">=1.3.*",<% } if (angularSanitize) { %>
+	"angular-sanitize": ">=1.3.*",<% } %>
 	"angular-bootstrap": "~0.11.2",
-	"angular-route": "1.2.24"
+  "angular-ui-router": "~0.2.10"
   },
   "resolutions": {
-    "angular": "1.2.28"
+    "angular": ">=1.3.*"
   }
 }
-

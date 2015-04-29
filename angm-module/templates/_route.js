@@ -9,9 +9,10 @@
  */
 
 angular.module('<%= slugifiedName %>')
-	.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/<%= slugifiedName %>', {
+	.config(['$stateProvider', function ($stateProvider) {
+		$stateProvider
+			.state('<%= slugifiedName %>', {
+				url:'/<%= slugifiedName %>',
 				templateUrl: 'app/modules/<%= slugifiedName %>/<%= slugifiedName %>.html',
 				controller: '<%= slugifiedNameCapitalize %>Ctrl'
 			});

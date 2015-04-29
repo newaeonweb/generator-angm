@@ -15,25 +15,23 @@ angular.module('<%= slugifiedAppName %>', [
     <% } if (angularAnimate) { %>'ngAnimate',
     <% } if (angularTouch) { %>'ngTouch',
     <% } if (angularSanitize) { %>'ngSanitize',
-    <% } %>'ngRoute'
+    <% } %>'ui.router'
 ])
 
-.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
     $locationProvider.hashPrefix('!');
 
     // This is required for Browser Sync to work poperly
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-    $routeProvider
-        .otherwise({
-            redirectTo: '/'
-        });
-        
+    $urlRouterProvider
+        .otherwise('/');
+
 }])
 
 .run(['$rootScope', function ($rootScope) {
-    
+
     'use strict';
 
     console.log('AngularJS run() function...');

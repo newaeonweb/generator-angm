@@ -2,7 +2,7 @@
 
 Modular Yeoman Generator to scaffold modular AngularJS applications.
 
-> [Yeoman](http://yeoman.io) Generator-angm
+> [Modular AngularJS Applications](http://www.newaeonweb.com.br/generator-angm) with Generator-angm
 
 ## Getting Started
 
@@ -13,17 +13,16 @@ Open your terminal window and type:
 npm install -g yo
 ```
 
-#### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+#### Installing the ANGM Generator
 
 To install generator-angm from npm, run:
 
 ```bash
 npm install -g generator-angm
 ```
+#### Starting an application
 
-Finally, initiate the generator:
+From the command line, initiate the generator:
 
 ```bash
 yo angm
@@ -44,7 +43,7 @@ Generator-angm have a subgenerator to create your application modules
 
 * yo angm:angm-module
 
-After that you must entre the module name and choose what files you want.
+After that you must entry the module name and choose what files you want.
 The subgenerator will produce the following directory structure:
 
 ```
@@ -55,7 +54,7 @@ The subgenerator will produce the following directory structure:
 		moduleName-test.js
 ```
 
-**Note: Subgenerators are to be run from the root directory of your app.**
+**Note: Subgenerators are to be run from the root directory of your application.**
 
 
 #### File Content
@@ -65,7 +64,7 @@ File: `app/modules/moduleName/moduleName.html`.
 Code:
 ```html
 <div ng-controller="moduleName">
-	
+
 </div>
 ```
 ---
@@ -108,9 +107,10 @@ Code:
  * Route of the appName
  */
 angular.module('appName')
-	.config(function ($routeProvider) {
-		$routeProvider
-			.when('/moduleName', {
+	.config(function ($stateProvider) {
+		$stateProvider
+			.state('moduleName', {
+				url: '/moduleName',
 				templateUrl: 'appName/modules/moduleName/moduleName.html',
 				controller: 'moduleNameCtrl'
 			});
@@ -132,7 +132,7 @@ The following packages are always installed by the angm-generator:
 * "angular"
 * "angular-resource"
 * "angular-bootstrap"
-* "angular-route
+* "angular-ui-route"
 
 
 The following modules are optional on first install:
