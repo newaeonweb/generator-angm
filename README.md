@@ -132,7 +132,7 @@ The following packages are always installed by the angm-generator:
 * "angular"
 * "angular-resource"
 * "angular-bootstrap"
-* "angular-ui-route"
+* "angular-ui-router"
 
 
 The following modules are optional on first install:
