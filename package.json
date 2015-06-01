@@ -1,10 +1,10 @@
 {
   "name": "generator-angm",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Modular Yeoman Generator to scaffold modular AngularJS applications.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "newaeonweb/generator-angm",
+  "repository": "https://github.com/newaeonweb/generator-angm",
   "author": {
     "name": "Fernando Monteiro",
     "url": "https://github.com/newaeonweb/generator-angm"
@@ -17,10 +17,17 @@
   },
   "files": [
     "app",
-    "angm-module"
+    "angm-module",
+    "angm-directive"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "AngularJS",
+    "ng",
+    "Angular Directives",
+    "AngularJS modular",
+    "karma",
+    "Angular Generator"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.0",
