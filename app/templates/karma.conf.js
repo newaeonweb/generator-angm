@@ -20,12 +20,16 @@ module.exports = function(config) {
 			'src/bower_components/angular-animate/angular-animate.js',
 			'src/bower_components/angular-touch/angular-touch.js',
 			'src/bower_components/angular-route/angular-route.js',
+			'src/bower_components/angular-ui-router/release/angular-ui-router.js',
 			'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 			'app/app.js',
-			'app/home/homeCtrl.js',
-			'app/home/homeRoute.js',
-			'app/home/home-test.js',
-			'app/modules/**/*.js'
+			'app/modules/home/homeCtrl.js',
+			'app/modules/home/homeRoute.js',
+			'app/modules/home/home-test.js',
+			'app/modules/**/*Ctrl.js',
+			'app/modules/**/*Route.js',
+			'app/modules/**/*Service.js',
+			'app/modules/**/*-test.js'
 		],
 
 		// Test results reporter to use

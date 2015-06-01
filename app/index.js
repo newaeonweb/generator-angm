@@ -99,17 +99,20 @@ var AngmGenerator = yeoman.generators.Base.extend({
 	copyApplicationFolder: function() {
 		// Create public folders
 		this.mkdir('app');
-		this.mkdir('app/home');
+		this.mkdir('app/modules/home');
 		this.mkdir('app/assets/images');
+		this.mkdir('app/assets/fonts');
+		this.mkdir('app/assets/css');
 		this.mkdir('src/bower_components');
 		this.mkdir('src/plugins');
+		this.mkdir('app/modules/shared');
 
 		//Copy home folder content
 		this.copy('app/app.js');
-		this.copy('app/home/home.html');
-		this.copy('app/home/homeCtrl.js');
-		this.copy('app/home/homeRoute.js');
-		this.copy('app/home/homeService.js');
+		this.copy('app/modules/home/home.html');
+		this.copy('app/modules/home/homeCtrl.js');
+		this.copy('app/modules/home/homeRoute.js');
+		this.copy('app/modules/home/homeService.js');
 
 		// Copy project files
 		this.copy('Gruntfile.js');
@@ -127,7 +130,7 @@ var AngmGenerator = yeoman.generators.Base.extend({
 		this.template('_package.json', 'package.json');
 		this.template('_bower.json', 'bower.json');
 		this.template('_index.html', 'index.html');
-		this.template('app/home/_home-test.js', 'app/home/home-test.js');
+		this.template('app/modules/home/_home-test.js', 'app/modules/home/home-test.js');
 	},
 
 	install: function () {
@@ -141,4 +144,3 @@ var AngmGenerator = yeoman.generators.Base.extend({
 });
 
 module.exports = AngmGenerator;
-

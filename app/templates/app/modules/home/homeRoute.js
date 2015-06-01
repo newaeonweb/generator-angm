@@ -13,7 +13,7 @@ angular.module('<%= slugifiedAppName %>')
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'app/home/home.html',
+				templateUrl: 'app/modules/home/home.html',
 				controller: 'HomeCtrl'
 			});
 	}]);
