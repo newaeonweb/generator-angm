@@ -41,9 +41,15 @@ The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and ot
 ## SubGenerators
 Generator-angm have a subgenerator to create your application modules
 
-* yo angm:angm-module
+#### Modules
+To create a module just type on your teminal window:
+
+```
+yo angm:angm-module
+```
 
 After that you must entry the module name and choose what files you want.
+
 The subgenerator will produce the following directory structure:
 
 ```
@@ -117,8 +123,30 @@ angular.module('appName')
 	});
 ```
 ---
+#### Directives
+To create a directive just type on your teminal window:
 
-##### Injector
+```
+yo angm:angm-directive
+```
+
+After that you must entry the directive name and choose what dependencies you want.
+
+The subgenerator will produce the following directory structure:
+
+```
+shared/
+		directives/
+			directiveName/
+				assets/ /* optional folder
+				directiveName.html
+				directiveNameCtrl.j
+				directiveName-test.js
+```
+
+
+
+## Injector
 By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module or script.
 
 
