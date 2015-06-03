@@ -444,7 +444,7 @@ footer .footer-below {
 
 /* video style */
 
-video, .video { 
+video, .video {
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -452,7 +452,7 @@ video, .video {
   background-size: cover;
   transition: 1s opacity;
 }
-.stopfade { 
+.stopfade {
    opacity: .5;
 }
 
@@ -469,7 +469,7 @@ video, .video {
     padding-top: 20px;
     padding-bottom: 20px;
     vertical-align: middle;
-    text-align: center; 
+    text-align: center;
 }
 
 .github-actions a, .github-actions a:hover{
@@ -486,4 +486,8 @@ video, .video {
 .github-page {
 width: 260px;
 margin: 30px auto;
+}
+
+#features {
+    background-color: #BFE6FF;
 }
