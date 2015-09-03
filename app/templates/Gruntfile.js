@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		banner: '/*!\n' +
 			'* <%= pkg.name %> - v<%= pkg.version %> - MIT LICENSE <%= grunt.template.today("yyyy-mm-dd") %>. \n' +
-			'* @author <%= pkg.author %>\n' +	
+			'* @author <%= pkg.author %>\n' +
 			'*/\n',
 
 		clean: {
@@ -107,18 +107,19 @@ module.exports = function (grunt) {
 						'app/app.js',
 						'app/**/*Route.js',
 						'app/**/*Ctrl.js',
-						'app/**/*Service.js'
+						'app/**/*Service.js',
+						'app/**/*Directive.js'
 					]
 				}
 			}
 		}
-	
+
 
 	});
 
 	require('time-grunt')(grunt);
 	require('load-grunt-tasks')(grunt);
-	
+
 	// Making grunt default to force in order not to break the project if something fail.
 	grunt.option('force', true);
 
