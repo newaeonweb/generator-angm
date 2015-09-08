@@ -24,7 +24,7 @@
 		/*jshint validthis: true */
 		var vm = this;
 		vm.title = "Hello, Angm-Generator!";
-		vm.version = "0.3.0";
+		vm.version = "0.3.1";
 		vm.listFeatures = homeService.getFeaturesList();
 
 	}

@@ -9,7 +9,8 @@
  */
  angular.module('<%= nameApp %>')
   .directive('<%= slugifiedNameCamelize %>')
-	  .controller('<%= slugifiedNameCapitalize %>Ctrl', ['$scope', function ($scope) {
+	  .controller('<%= slugifiedNameCapitalize %>Ctrl', <%= slugifiedNameCapitalize %> );
 
-
-	}]);
+    function <%= slugifiedNameCapitalize %>() {
+      
+    }
