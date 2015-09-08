@@ -14,6 +14,7 @@ angular.module('<%= slugifiedName %>')
 			.state('<%= slugifiedName %>', {
 				url:'/<%= slugifiedName %>',
 				templateUrl: 'app/modules/<%= slugifiedName %>/<%= slugifiedName %>.html',
-				controller: '<%= slugifiedNameCapitalize %>Ctrl'
+				controller: '<%= slugifiedNameCapitalize %>Ctrl',
+				controllerAs: 'vm'
 			});
 	}]);

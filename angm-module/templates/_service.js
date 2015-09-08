@@ -7,8 +7,14 @@
  * # <%= slugifiedName %>Service
  * Service of the app
  */
-angular.module('<%= slugifiedName %>')
-	.factory('<%= slugifiedNameCapitalize %>Service', ['$resource', function ($resource) {
+angular
+	.module('<%= slugifiedName %>')
+	.factory('<%= slugifiedNameCapitalize %>Service', <%= slugifiedNameCapitalize %>);
+	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
+	// function Name ($http, someSevide) {...}
 
+	<%= slugifiedNameCapitalize %>.$inject = ['$http'];
 
-	}]);
+	function <%= slugifiedNameCapitalize %> ($http) {
+
+	}
