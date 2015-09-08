@@ -1,10 +1,14 @@
 <div class="container">
 	<br>
 	<div class="well text-center">
-		<h1>{{ title }}</h1>
+		<h1>{{ vm.title }}</h1>
+		<h3>{{ vm.version }}</h3>
 		<p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>
 		<code>app/modules/home/home.html</code>
 		<hr>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="item in vm.listFeatures">{{item.feature}}</li>
+		</ul>
 		<p><a href="http://www.github.com/newaeonweb/generator-angm" class="btn btn-primary" role="button">Learn more »</a></p>
 	</div>
 </div>

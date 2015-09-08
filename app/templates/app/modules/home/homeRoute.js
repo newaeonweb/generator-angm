@@ -14,6 +14,7 @@ angular.module('<%= slugifiedAppName %>')
 			.state('home', {
 				url: '/',
 				templateUrl: 'app/modules/home/home.html',
-				controller: 'HomeCtrl'
+				controller: 'HomeCtrl',
+				controllerAs: 'vm'
 			});
 	}]);
