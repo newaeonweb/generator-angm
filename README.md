@@ -57,6 +57,7 @@ The subgenerator will produce the following directory structure:
 		moduleName.html
 		moduleNameCtrl.js
 		moduleNameRoute.js
+		moduleNameService.js
 		moduleName-test.js
 ```
 
@@ -69,8 +70,8 @@ File: `app/modules/moduleName/moduleName.html`.
 
 Code:
 ```html
-<div ng-controller="moduleName">
-
+<div>
+	Content from: "Page = moduleName"
 </div>
 ```
 ---
@@ -90,10 +91,14 @@ Code:
  * Controller of the appName
  */
 angular.module('appName')
-	.controller('moduleNameCtrl', ['$scope', function ($scope) {
+	.controller('ModuleNameCtrl', ModuleNameCtrl);
 
+	ModuleNameCtrl.$inject = ['Array of Dependencies optional'];
 
-	}]);
+	function ModuleNameCtrl ('Array of Dependencies is the same above') {
+
+	}
+
 ```
 ---
 
@@ -118,7 +123,8 @@ angular.module('appName')
 			.state('moduleName', {
 				url: '/moduleName',
 				templateUrl: 'appName/modules/moduleName/moduleName.html',
-				controller: 'moduleNameCtrl'
+				controller: 'moduleNameCtrl',
+				controllerAs: 'vm'
 			});
 	});
 ```
