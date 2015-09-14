@@ -1,16 +1,26 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name app.controller:<%= slugifiedName %>Ctrl
- * @description
- * # <%= slugifiedName %>Ctrl
- * Controller of the app
- */
- angular.module('<%= nameApp %>')
-  .directive('<%= slugifiedNameCamelize %>')
-	  .controller('<%= slugifiedNameCapitalize %>Ctrl', <%= slugifiedNameCapitalize %> );
+* @ngdoc function
+* @name app.controller:<%= slugifiedName %>Ctrl
+* @description
+* # <%= slugifiedName %>Ctrl
+* Controller of the app
+*/
+angular
+	.module('<%= nameApp %>')
+	.controller('<%= slugifiedNameCapitalize %>Ctrl', <%= slugifiedNameCapitalize %> );
 
-    function <%= slugifiedNameCapitalize %>() {
-      
-    }
+	<%= slugifiedNameCapitalize %>.$inject = [];
+
+	/*
+	* recommend
+	* Using function declarations
+	* and bindable members up top.
+	*/
+
+	function <%= slugifiedNameCapitalize %>() {
+		/*jshint validthis: true */
+		var vm = this;
+
+	}

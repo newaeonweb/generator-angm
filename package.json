@@ -1,6 +1,6 @@
 {
   "name": "generator-angm",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Modular Yeoman Generator to scaffold modular AngularJS applications.",
   "license": "MIT",
   "main": "app/index.js",
