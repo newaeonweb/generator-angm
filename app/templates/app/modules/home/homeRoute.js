@@ -1,12 +1,12 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name app.route:HomeRoute
- * @description
- * # HomeRoute
- * Route of the app
- */
+	/**
+	* @ngdoc function
+	* @name app.route:HomeRoute
+	* @description
+	* # HomeRoute
+	* Route of the app
+	*/
 
 angular.module('<%= slugifiedAppName %>')
 	.config(['$stateProvider', function ($stateProvider) {

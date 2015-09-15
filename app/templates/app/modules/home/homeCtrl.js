@@ -1,5 +1,6 @@
+'use strict';
 
-	'use strict';
+(function() {
 
 	/**
 	* @ngdoc function
@@ -28,3 +29,5 @@
 		vm.listFeatures = homeService.getFeaturesList();
 
 	}
+
+})();
