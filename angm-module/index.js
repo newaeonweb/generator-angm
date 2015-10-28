@@ -110,6 +110,7 @@ var ModuleGenerator = yeoman.generators.Base.extend({
 		if (this.addServiceFile) this.template('_service.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Service.js');
 
 		this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
+		this.template('_module.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Module.js');
 
 	},
 

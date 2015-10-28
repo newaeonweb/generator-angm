@@ -38,8 +38,11 @@ grunt dev
 After the command your application should start right in your default browser at `localhost:8000`.
 The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and others.
 
-## SubGenerators
-Generator-angm have a subgenerator to create your application modules
+> NOTE: after using **yo angm** command, we recorded some useful informations on **.yo-rc.json** file created at the project root folder. So you can't execute the generator command to create the application more than one time per folder!
+
+# SubGenerators
+Generator-angm have a subgenerator to create your application modules and directives, let's what we need to do to create modules.
+
 
 #### Modules
 To create a module just type on your teminal window:
@@ -55,6 +58,7 @@ The subgenerator will produce the following directory structure:
 ```
 	moduleName/
 		moduleName.html
+		moduleNameModule.js
 		moduleNameCtrl.js
 		moduleNameRoute.js
 		moduleNameService.js
@@ -64,7 +68,7 @@ The subgenerator will produce the following directory structure:
 **Note: Subgenerators are to be run from the root directory of your application.**
 
 
-#### File Content
+#### Content of each created files:
 ##### View (Html Template)
 File: `app/modules/moduleName/moduleName.html`.
 
@@ -129,14 +133,40 @@ angular.module('appName')
 	});
 ```
 ---
+
+##### Module
+
+File: `app/modules/moduleName/moduleNameModule.js`.
+
+Code:
+```javascript
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name appName.route:moduleNameModule
+ * @description
+ * # moduleNameModule
+ * Route of the appName
+ */
+
+ (function() {
+   'use strict';
+
+   angular.module('moduleName', []);
+
+ })();
+```
+---
+
 #### Directives
-To create a directive just type on your teminal window:
+To create a directive just type on your terminal window:
 
 ```
 yo angm:angm-directive
 ```
 
-After that you must entry the directive name and choose what dependencies you want.
+After that you must entry the directive name and choose what dependencies you want, by default we using external templates and external controllers.
 
 The subgenerator will produce the following directory structure:
 
@@ -153,7 +183,7 @@ shared/
 
 
 ## Injector
-By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module or script.
+By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module, directive or script.
 
 
 ## Bower Components
@@ -176,7 +206,7 @@ The following modules are optional on first install:
 * "angular-touch"
 * "angular-sanitize"
 
-All of these can be updated with `bower update` as new versions of AngularJS are released.
+All of these can be updated with `bower update` as new versions of AngularJS are released. Always on first install the generator will use the last stable version of all libraries.
 
 
 ## Testing

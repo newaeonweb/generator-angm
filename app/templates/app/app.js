@@ -15,7 +15,8 @@ angular.module('<%= slugifiedAppName %>', [
     <% } if (angularAnimate) { %>'ngAnimate',
     <% } if (angularTouch) { %>'ngTouch',
     <% } if (angularSanitize) { %>'ngSanitize',
-    <% } %>'ui.router'
+    <% } %>'ui.router',
+    'home',
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

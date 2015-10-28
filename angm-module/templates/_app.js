@@ -8,9 +8,6 @@
  *
  * Main modules of the application.
  */
-<% _.each(arrayModules, function(module) { %>
-angular.module('<%= module.name %>', []);
-<% }); %>
 
 angular.module('<%= nameApp %>', [
     'ngResource',
@@ -19,7 +16,8 @@ angular.module('<%= nameApp %>', [
     <% } if (angularAnimate) { %>'ngAnimate',
     <% } if (angularTouch) { %>'ngTouch',
     <% } if (angularSanitize) { %>'ngSanitize',
-    <% } %>'ui.router',<% _.each(arrayModules, function(module) { %>
+    <% } %>'ui.router',
+    'home',<% _.each(arrayModules, function(module) { %>
     '<%= module.name %>',<% }); %>
 ])
 
