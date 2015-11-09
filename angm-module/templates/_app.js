@@ -11,6 +11,7 @@
 
 angular.module('<%= nameApp %>', [
     'ngResource',
+    'ngAria',
     'ui.bootstrap',
     <% if (angularCookies) { %>'ngCookies',
     <% } if (angularAnimate) { %>'ngAnimate',

@@ -10,6 +10,7 @@
  */
 angular.module('<%= slugifiedAppName %>', [
     'ngResource',
+    'ngAria',
     'ui.bootstrap',
     <% if (angularCookies) { %>'ngCookies',
     <% } if (angularAnimate) { %>'ngAnimate',

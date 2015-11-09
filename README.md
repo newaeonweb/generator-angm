@@ -195,6 +195,8 @@ The following packages are always installed by the angm-generator:
 * "bootstrap"
 * "angular"
 * "angular-resource"
+* "angular-aria"
+* "angular-mocks"
 * "angular-bootstrap"
 * "angular-ui-router"
 
