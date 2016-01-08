@@ -20,7 +20,7 @@ angular
 				restrict: 'EA',
 				controller: '<% if (addControllerFile) { %><%= slugifiedNameCapitalize %>Ctrl<% } %>',
 				<% if (addTemplateFile) { %>
-				templateUrl:'<%= slugifiedName %>.html',
+				templateUrl:'app/modules/shared/directives/<%= slugifiedName %>/<%= slugifiedName %>.html',
 				<% } else { %>
 				template: ''
 				<% } %>
