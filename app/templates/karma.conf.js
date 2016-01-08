@@ -13,23 +13,21 @@ module.exports = function(config) {
 			'src/bower_components/json3/lib/json3.min.js',
 			'src/bower_components/bootstrap/dist/js/bootstrap.js',
 			'src/bower_components/angular/angular.js',
+      'src/bower_components/angular-aria/angular-aria.js',
 			'src/bower_components/angular-resource/angular-resource.js',
 			'src/bower_components/angular-mocks/angular-mocks.js',
 			'src/bower_components/angular-cookies/angular-cookies.js',
 			'src/bower_components/angular-sanitize/angular-sanitize.js',
 			'src/bower_components/angular-animate/angular-animate.js',
 			'src/bower_components/angular-touch/angular-touch.js',
-			'src/bower_components/angular-route/angular-route.js',
 			'src/bower_components/angular-ui-router/release/angular-ui-router.js',
 			'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 			'app/app.js',
+      'app/modules/home/homeModule.js',
 			'app/modules/home/homeCtrl.js',
 			'app/modules/home/homeRoute.js',
-			'app/modules/home/home-test.js',
-			'app/modules/**/*Ctrl.js',
-			'app/modules/**/*Route.js',
-			'app/modules/**/*Service.js',
-			'app/modules/**/*-test.js'
+      'app/modules/home/homeService.js',
+			'app/modules/home/home-test.js'
 		],
 
 		// Test results reporter to use
