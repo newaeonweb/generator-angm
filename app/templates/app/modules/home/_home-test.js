@@ -2,26 +2,28 @@
 
 (function() {
 	describe('homeCtrl', function () {
-    	var controller = null, $scope = null;
-    
+    	var controller = null, $scope = null, $location;
+
 	    beforeEach(function () {
 	        module('<%= slugifiedAppName %>');
 	    });
-	    
-	    beforeEach(inject(function ($controller, $rootScope) {
+
+	    beforeEach(inject(function ($controller, $rootScope, _$location_) {
 	        $scope = $rootScope.$new();
+          $location = _$location_;
+
 	        controller = $controller('HomeCtrl', {
 	            $scope: $scope
 	        });
 	    }));
-	    
+
 	    it('Should HomeCtrl must be defined', function () {
 	        expect(controller).toBeDefined();
 	    });
 
-	    it('Should have title', function() {
-	    	expect($scope.title).toBe('Hello, Angm-Generator!');
-
+	    it('Should match the path Module name', function() {
+          $location.path('/home');
+			    expect($location.path()).toBe('/home');
 	    });
 
 	});
