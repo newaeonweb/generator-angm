@@ -24,7 +24,7 @@
 	function Home(homeService) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.title = "Hello, Angm-Generator!";
+		vm.title = "Hello, <%= slugifiedAppName %>!";
 		vm.version = "0.4.x";
 		vm.listFeatures = homeService.getFeaturesList();
 
