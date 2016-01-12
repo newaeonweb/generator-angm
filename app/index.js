@@ -103,6 +103,7 @@ var AngmGenerator = generators.Base.extend({
     // Create public folders
     mkdirp('app');
     mkdirp('app/modules/home');
+    mkdirp('app/modules/layouts/nav-bar');
     mkdirp('app/assets/images');
     mkdirp('app/assets/fonts');
     mkdirp('app/assets/css');
@@ -117,6 +118,15 @@ var AngmGenerator = generators.Base.extend({
     this.copy('app/modules/home/homeRoute.js');
     this.copy('app/modules/home/homeService.js');
     this.copy('app/modules/home/homeModule.js');
+
+    //Copy layouts folder content
+    this.copy('app/modules/layouts/nav-bar/navbar.html');
+    this.copy('app/modules/layouts/nav-bar/navbar-tpl.html');
+    this.copy('app/modules/layouts/nav-bar/navBarCtrl.js');
+    this.copy('app/modules/layouts/nav-bar/navbarDirective.js');
+    this.copy('app/modules/layouts/nav-bar/navbarService.js');
+
+
 
     // Copy project files
     //this.copy('Gruntfile.js');

@@ -167,7 +167,7 @@ var ModuleGenerator = generators.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('_navService.js'),
-      this.destinationPath('app/modules/shared/navService.js'),
+      this.destinationPath('app/modules/layouts/nav-bar/navBarService.js'),
       {
         arrayMenu: this.config.get('menu'),
         nameApp: this.config.get('appName'),

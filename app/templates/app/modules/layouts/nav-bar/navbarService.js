@@ -10,7 +10,7 @@
 	* Service of the app
 	*/
 	angular
-	.module('<%= nameApp %>')
+	.module('<%= slugifiedAppName %>')
 	.factory('MenuService', Menu);
 	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 	// function Name ($http, someSevide) {...}
@@ -18,14 +18,13 @@
 	Menu.$inject = ['$http'];
 
 	function Menu ($http) {
+    // Sample code.
 
 		var menu = [
-    <% _.each(arrayMenu, function(menu) { %>
-        {
-          link: '<%= menu.link %>',
-          name: '<%= menu.title %>'
-        },
-    <% }); %>
+			{
+				link: '.',
+				name: 'This is a Placeholder menu. They will dispear on first module created'
+			}
 		];
 
 		return {
