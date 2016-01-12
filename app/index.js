@@ -134,6 +134,7 @@ var AngmGenerator = generators.Base.extend({
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
     this.template('_index.html', 'index.html');
+    this.template('app/_app.config.js', 'app/app.config.js');
 
     this.template('app/modules/home/_home-test.js', 'app/modules/home/home-test.js');
 

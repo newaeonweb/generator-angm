@@ -105,6 +105,7 @@ module.exports = function (grunt) {
 					'index.html': [
 						'bower.json',
 						'app/app.js',
+            'app/app.config.js',
 						'app/**/*Module.js',
 						'app/**/*Route.js',
 						'app/**/*Ctrl.js',
