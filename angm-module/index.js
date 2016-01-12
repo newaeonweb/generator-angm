@@ -121,6 +121,30 @@ var ModuleGenerator = generators.Base.extend({
     this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
     this.template('_module.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Module.js');
 
+    this.menu = this.config.get('menu');
+
+      if (!this.menu) {
+        this.menu = [];
+      }
+
+      for (var i = 0; i < this.menu.length; i++) {
+
+        this.listMenu = this.menu[i].link;
+
+        console.log(this.listMenu);
+
+        if (this.slugifiedName === this.listMenu) {
+
+          return this.log.writeln(chalk.red(' Menu name already exists'));
+
+        }
+      }
+
+      this.menu.push({link: this.slugifiedName, title: this.slugifiedNameCapitalize});
+
+      this.config.set('menu', this.menu);
+
+      //this.template('_navService.js', 'app/modules/shared/navService.js');
   },
 
   updateAppFile: function () {
@@ -137,6 +161,19 @@ var ModuleGenerator = generators.Base.extend({
         angularTouch: this.config.get('angularTouch'),
         angularSanitize: this.angularSanitize,
         _: _
+
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_navService.js'),
+      this.destinationPath('app/modules/shared/navService.js'),
+      {
+        arrayMenu: this.config.get('menu'),
+        nameApp: this.config.get('appName'),
+
+        _: _,
+        slugifiedName: this.slugifiedName
 
       }
     );
