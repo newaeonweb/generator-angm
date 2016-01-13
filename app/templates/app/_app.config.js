@@ -1,32 +1,41 @@
-(function() {
-    'use strict';
+(function () {
+	'use strict';
 
-    angular
-        .module('<%= slugifiedAppName %>')
-        .config(configure)
-        .run(runBlock);
+	/**
+	 * @ngdoc configuration file
+	 * @name app.config:config
+	 * @description
+	 * # Config and run block
+	 * Configutation of the app
+	 */
 
-    configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
-    function configure ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+	angular
+		.module('<%= slugifiedAppName %>')
+		.config(configure)
+		.run(runBlock);
 
-        $locationProvider.hashPrefix('!');
+	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
-        // This is required for Browser Sync to work poperly
-        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+	function configure($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
-        $urlRouterProvider
-            .otherwise('/');
+		$locationProvider.hashPrefix('!');
 
-    }
+		// This is required for Browser Sync to work poperly
+		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-    runBlock.$inject = ['$rootScope'];
+		$urlRouterProvider
+			.otherwise('/');
 
-    function runBlock ($rootScope) {
-        'use strict';
+	}
 
-        console.log('AngularJS run() function...');
-    }
+	runBlock.$inject = ['$rootScope'];
+
+	function runBlock($rootScope) {
+		'use strict';
+
+		console.log('AngularJS run() function...');
+	}
 
 
 })();

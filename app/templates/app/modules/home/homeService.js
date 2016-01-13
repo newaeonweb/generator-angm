@@ -1,16 +1,16 @@
-'use strict';
-
-(function() {
+(function () {
+	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.service:homeService
-	* @description
-	* # homeService
-	* Service of the app
-	*/
- angular.module('<%= slugifiedAppName %>')
- .factory('homeService', homeService)
+	 * @ngdoc function
+	 * @name app.service:homeService
+	 * @description
+	 * # homeService
+	 * Service of the app
+	 */
+
+	angular.module('<%= slugifiedAppName %>')
+		.factory('homeService', homeService);
 
 	homeService.$inject = ['$http'];
 

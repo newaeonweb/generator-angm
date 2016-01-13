@@ -1,39 +1,39 @@
-'use strict';
-
 (function() {
+	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.service:menuService
-	* @description
-	* # menuService
-	* Service of the app
-	*/
-	angular
-	.module('<%= nameApp %>')
-	.factory('MenuService', Menu);
-	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
-	// function Name ($http, someSevide) {...}
+	 * @ngdoc function
+	 * @name app.service:menuService
+	 * @description
+	 * # menuService
+	 * Service of the app
+	 */
 
-	Menu.$inject = ['$http'];
+  	angular
+		.module('<%= nameApp %>')
+		.factory('MenuService', Menu);
+		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
+		// function Name ($http, someSevide) {...}
 
-	function Menu ($http) {
+		Menu.$inject = ['$http'];
 
-		var menu = [
-    <% _.each(arrayMenu, function(menu) { %>
-        {
-          link: '<%= menu.link %>',
-          name: '<%= menu.title %>'
-        },
-    <% }); %>
-		];
+		function Menu ($http) {
 
-		return {
-			listMenu: function () {
-				return menu;
-			}
+			var menu = [
+				<% _.each(arrayMenu, function(menu) { %>
+					{
+						link: '<%= menu.link %>',
+							name: '<%= menu.title %>'
+					},
+			    <% }); %>
+		  	];
+
+			return {
+				listMenu: function () {
+					return menu;
+				}
+		  	}
+
 		}
-
-	}
 
 })();

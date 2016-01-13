@@ -1,15 +1,14 @@
-'use strict';
+(function () {
+	'use strict';
 
-/**
-* @ngdoc function
-* @name app.route:<%= slugifiedName %>Route
-* @description
-* # <%= slugifiedName %>Route
-* Route of the app
-*/
-(function() {
-  'use strict';
+	/**
+	 * @ngdoc function
+	 * @name app.module:<%= slugifiedName %>Module
+	 * @description
+	 * # <%= slugifiedName %>Module
+	 * Module of the app
+	 */
 
-  angular.module('<%= slugifiedName %>', []);
+  	angular.module('<%= slugifiedName %>', []);
 
 })();

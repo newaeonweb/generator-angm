@@ -1,6 +1,5 @@
-'use strict';
-
 (function() {
+	'use strict';
 
 	/**
 	* @ngdoc function
@@ -9,7 +8,8 @@
 	* # <%= slugifiedName %>Directive
 	* Directive of the app
 	*/
-angular
+
+	angular
 		.module('<%= nameApp %>')
 		.directive('<%= slugifiedNameCamelize %>', <%= slugifiedNameCamelize %>);
 
