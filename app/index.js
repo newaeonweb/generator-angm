@@ -99,6 +99,38 @@ var AngmGenerator = generators.Base.extend({
     }.bind(this));
   },
 
+  askForUIApplicationModules: function () {
+    var done = this.async();
+
+    var prompts = [{
+      type: 'checkbox',
+      name: 'ui',
+      message: 'Which UI Frameworkwould you like to include?',
+      choices: [{
+        value: 'angularBootstrap',
+        name: 'Angular UI Bootstrap',
+        checked: false
+      },
+      {
+        value: 'angularMaterial',
+        name: 'ngMaterial',
+        checked: false
+      }]
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.angularBootstrap = _.contains(props.ui, 'angularBootstrap');
+      this.angularMaterial = _.contains(props.ui, 'angularMaterial');
+
+
+      this.config.set('angularBootstrap', this.angularBootstrap);
+      this.config.set('angularMaterial', this.angularMaterial);
+
+
+      done();
+    }.bind(this));
+  },
+
   createApplicationScaffold: function () {
     // Create public folders
     mkdirp('app');
@@ -113,18 +145,39 @@ var AngmGenerator = generators.Base.extend({
 
     //Copy home folder content
     this.copy('app/app.js');
-    this.copy('app/modules/home/home.html');
+    if (this.angularMaterial == true) {
+      this.template('app/modules/home/home-material.html', 'app/modules/home/home.html');
+    } else {
+      this.copy('app/modules/home/home.html');
+    }
     this.copy('app/modules/home/homeCtrl.js');
     this.copy('app/modules/home/homeRoute.js');
     this.copy('app/modules/home/homeService.js');
     this.copy('app/modules/home/homeModule.js');
 
+
+
     //Copy layouts folder content
-    this.copy('app/modules/layouts/nav-bar/navbar.html');
-    this.copy('app/modules/layouts/nav-bar/navbar-tpl.html');
-    this.copy('app/modules/layouts/nav-bar/navBarCtrl.js');
-    this.copy('app/modules/layouts/nav-bar/navbarDirective.js');
-    this.copy('app/modules/layouts/nav-bar/navbarService.js');
+    if (this.angularMaterial == true) {
+
+      this.copy('app/modules/layouts/page/page.html');
+      this.copy('app/modules/layouts/page/pageCtrl.js');
+
+      this.copy('app/modules/layouts/side-nav/sidenav.html');
+      this.copy('app/modules/layouts/side-nav/sidenavCtrl.js');
+      this.copy('app/modules/layouts/side-nav/sidenavService.js');
+
+
+
+    } else {
+
+      this.copy('app/modules/layouts/nav-bar/navbar.html');
+      this.copy('app/modules/layouts/nav-bar/navbar-tpl.html');
+      this.copy('app/modules/layouts/nav-bar/navBarCtrl.js');
+      this.copy('app/modules/layouts/nav-bar/navbarDirective.js');
+      this.copy('app/modules/layouts/nav-bar/navbarService.js');
+    }
+
 
 
 
@@ -143,7 +196,12 @@ var AngmGenerator = generators.Base.extend({
   createApplicationTemplateFiles: function () {
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
-    this.template('_index.html', 'index.html');
+    if (this.angularMaterial == true) {
+      this.template('_index-material.html', 'index.html');
+    } else {
+      this.template('_index.html', 'index.html');
+    }
+
     this.template('app/_app.config.js', 'app/app.config.js');
 
     this.template('app/modules/home/_home-test.js', 'app/modules/home/home-test.js');

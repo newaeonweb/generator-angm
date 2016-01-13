@@ -160,18 +160,38 @@ var ModuleGenerator = generators.Base.extend({
         angularAnimate: this.config.get('angularAnimate'),
         angularTouch: this.config.get('angularTouch'),
         angularSanitize: this.angularSanitize,
-        _: _
+        _: _,
+        angularBootstrap: this.config.get('angularBootstrap'),
+        angularMaterial: this.config.get('angularMaterial')
 
       }
     );
 
+    var getUI = this.config.get('angularMaterial');
+
+    if (getUI == true) {
+
+      this.fs.copyTpl(
+
+      this.templatePath('_navService.js'),
+      this.destinationPath('app/modules/layouts/side-nav/sidenavService.js'),
+      {
+        arrayMenu: this.config.get('menu'),
+        nameApp: this.config.get('appName'),
+        _: _,
+        slugifiedName: this.slugifiedName
+
+      }
+    );
+    }
+
     this.fs.copyTpl(
+
       this.templatePath('_navService.js'),
       this.destinationPath('app/modules/layouts/nav-bar/navBarService.js'),
       {
         arrayMenu: this.config.get('menu'),
         nameApp: this.config.get('appName'),
-
         _: _,
         slugifiedName: this.slugifiedName
 

@@ -20,12 +20,10 @@
 	function Menu ($http) {
     // Sample code.
 
-		var menu = [
-			{
-				link: '.',
-				name: 'This is a Placeholder menu. It disappears when the first module has been created.'
-			}
-		];
+		var menu = [{
+            link : '.',
+            name: 'This is a Placeholder menu. It disappears when the first module has been created.'
+        }];
 
 		return {
 			listMenu: function () {

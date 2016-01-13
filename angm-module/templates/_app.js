@@ -13,7 +13,10 @@
 angular.module('<%= nameApp %>', [
     'ngResource',
     'ngAria',
-    'ui.bootstrap',
+    <% if (angularBootstrap) { %> 'ui.bootstrap',
+    <% } if (angularMaterial) { %> 'ngMaterial',
+    'ngMdIcons',
+    <% } %>
     <% if (angularCookies) { %>'ngCookies',
     <% } if (angularAnimate) { %>'ngAnimate',
     <% } if (angularTouch) { %>'ngTouch',
