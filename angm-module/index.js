@@ -115,10 +115,25 @@ var ModuleGenerator = generators.Base.extend({
     // Render angular module definition
     if (this.addControllerFile) this.template('_controller.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Ctrl.js');
     if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
-    if (this.addTplFile) this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
     if (this.addServiceFile) this.template('_service.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Service.js');
 
-    this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
+	if (this.addTplFile) {
+
+		var m = this.config.get('angularMaterial');
+
+		if (m == true) {
+
+			this.template('_template-material.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
+
+		} else {
+
+			this.template('_template.html', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '.html');
+		}
+
+
+	}
+
+	this.template('_test.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + '-test.js');
     this.template('_module.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Module.js');
 
     this.menu = this.config.get('menu');
