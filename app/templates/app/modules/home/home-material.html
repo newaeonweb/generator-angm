@@ -1,13 +1,33 @@
 <div class="md-padding" flex layout-sm="column">
     <md-card>
         <md-card-content>
-            <h2 class="md-title">Content from: home page</h2>
-        </md-card-content>
+            <h1 class="md-display-1">{{vm.title}}</h1>
 
-        <div class="md-actions" layout="row" layout-align="end center">
-            <md-button class="md-raised md-warn" ng-click="vm.showDialog()">Action Popup</md-button>
-            <md-button class="md-raised">Action 2</md-button>
-        </div>
+            <h3>{{ vm.version }}</h3>
+
+            <p>This is a template for a simple home screen website. Use it as a starting point to create something more
+                unique.</p>
+            <code>app/modules/home/home.html</code>
+            <br>
+            <br>
+            <div class="center-block">
+                <md-button href="https://github.com/newaeonweb/generator-angm"
+                 title="Launch Docs in new window"
+                 target="_blank"
+                 class="md-raised"
+                 aria-label="Google.com">Learn More</md-button>
+            </div>
+            <hr>
+            <md-list>
+                <md-list-item class="md-2-line" ng-repeat="item in vm.listFeatures">
+
+                    <div class="md-list-item-text">
+                        <ng-md-icon icon="check" style="fill: green" size="24"></ng-md-icon>
+                        <h3>{{item.feature}}</h3>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
     </md-card>
 
 </div>
