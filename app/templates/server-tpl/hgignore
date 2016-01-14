@@ -1,0 +1,14 @@
+syntax: glob
+
+*.pyc
+*.pyo
+.DS_Store
+bower_components
+main/index.yaml
+main/lib
+main/lib.zip
+main/public/dist
+main/public/lib
+node_modules
+temp/
+.idea

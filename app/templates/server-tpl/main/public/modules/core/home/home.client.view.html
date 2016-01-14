@@ -1,0 +1,189 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <md-grid-list flex md-cols-gt-sm="8"
+                  md-cols="2"
+                  md-row-height="2:1"
+                  md-row-height-gt-sm="1:1"
+                  md-row-height-gt-md="1:1"
+                  md-row-height-gt-lg="3:2"
+                  md-gutter="10px">
+        <md-grid-tile md-rowspan-gt-md="1"
+                      md-rowspan-gt-sm="2"
+                      md-colspan-gt-sm="8"
+                      md-colspan="2"
+                      md-rowspan="2"
+                      class="md-whiteframe-z1 white-bg">
+            <h1 class="text-center hpad-15">Welcome to Google App Engine Angular Material Starter!</h1>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="1"
+                      md-colspan-gt-md="3"
+                      md-rowspan-gt-md="1"
+                      md-colspan-gt-sm="3"
+                      md-rowspan-gt-sm="1"
+                      md-colspan="2"
+                      md-rowspan="1"
+                      class="md-whiteframe-z1 white-bg">
+            <h3 class="text-center hpad-15">This stack consists of</h3>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="3"
+                      md-rowspan-gt-md="3"
+                      md-colspan-gt-md="3"
+                      md-rowspan-gt-sm="3"
+                      md-colspan-gt-sm="3"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      ng-mouseover="showNgFooter = true" ng-mouseleave="showNgFooter = false"
+                      class="md-whiteframe-z1 angular-tile">
+            <a class="hpad-15"
+               layout="row"
+               layout-align="center center"
+               href="http://angularjs.org"
+               target="_blank">
+                <img src="/p/modules/core/img/angular-logo.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showNgFooter">
+                <h3>AngularJS</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="4"
+                      md-rowspan-gt-lg="3"
+                      md-colspan-gt-md="3"
+                      md-rowspan-gt-md="2"
+                      md-colspan-gt-sm="3"
+                      md-rowspan-gt-sm="2"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      ng-mouseover="showGaeFooter = true" ng-mouseleave="showGaeFooter = false"
+                      class="md-whiteframe-z1 gae-tile">
+            <a class="hpad-15"
+               layout="row"
+               layout-align="center center"
+               href="https://cloud.google.com/appengine/"
+               target="_blank">
+                <img src="/p/modules/core/img/appengine-logo.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showGaeFooter">
+                <h3>Google App Engine</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="3"
+                      md-colspan-gt-md="2"
+                      md-rowspan-gt-md="3"
+                      md-colspan-gt-sm="2"
+                      md-rowspan-gt-sm="3"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      ng-mouseover="showMdFooter = true" ng-mouseleave="showMdFooter = false"
+                      class="md-whiteframe-z1 material-design-tile">
+            <a layout="row"
+               layout-align="center center"
+               href="http://www.google.com/design/"
+               target="_blank">
+                <img src="/p/modules/core/img/material-design-logo.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showMdFooter">
+                <h3>Material Design</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="3"
+                      md-colspan-gt-md="2"
+                      md-rowspan-gt-md="2"
+                      md-colspan-gt-sm="2"
+                      md-rowspan-gt-sm="2"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      ng-mouseover="showFlaskFooter = true" ng-mouseleave="showFlaskFooter = false"
+                      class="md-whiteframe-z1 flask-tile">
+            <a layout="row"
+               layout-align="center center"
+               href="http://flask.pocoo.org/"
+               target="_blank">
+                <img src="/p/modules/core/img/flask-logo-white.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showFlaskFooter">
+                <h3>Python Flask</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="1"
+                      md-rowspan-gt-lg="3"
+                      md-colspan-gt-md="1"
+                      md-rowspan-gt-md="2"
+                      md-colspan-gt-sm="1"
+                      md-rowspan-gt-sm="2"
+                      md-colspan="1"
+                      md-rowspan="4"
+                      ng-mouseover="showGulpFooter = true" ng-mouseleave="showGulpFooter = false"
+                      class="md-whiteframe-z1 gulp-tile">
+            <a layout="row"
+               layout-align="center center"
+               href="http://gulpjs.com/"
+               target="_blank">
+                <img src="/p/modules/core/img/gulp-logo-white.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showGulpFooter">
+                <h3>Gulp.js</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="3"
+                      md-rowspan-gt-lg="1"
+                      md-colspan-gt-md="3"
+                      md-rowspan-gt-md="1"
+                      md-colspan-gt-sm="3"
+                      md-rowspan-gt-sm="1"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      class="md-whiteframe-z1 white-bg github-tile">
+            <a href="https://github.com/madvas/gae-angular-material-starter" class="no-dec" target="_blank">
+                <h3 layout="column" layout-gt-sm="row" layout-align="center center" layout-margin
+                    class="text-center hpad-15">
+                    <span flex flex-gt-sm="75">You can find code on</span>
+                    <i flex class="fa fa-github"></i>
+                </h3>
+            </a>
+
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="1"
+                      md-colspan-gt-md="2"
+                      md-rowspan-gt-md="1"
+                      md-colspan-gt-sm="2"
+                      md-rowspan-gt-sm="1"
+                      md-colspan="1"
+                      md-rowspan="1"
+                      ng-mouseover="showNpmFooter = true" ng-mouseleave="showNpmFooter = false"
+                      class="md-whiteframe-z1 npm-tile">
+            <a layout="row"
+               layout-align="center center"
+               href="https://www.npmjs.com/"
+               target="_blank">
+                <img src="/p/modules/core/img/npm-logo.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showNpmFooter">
+                <h3>npm.js</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile md-colspan-gt-lg="2"
+                      md-rowspan-gt-lg="2"
+                      md-colspan-gt-md="3"
+                      md-rowspan-gt-md="2"
+                      md-colspan-gt-sm="3"
+                      md-rowspan-gt-sm="2"
+                      md-colspan="1"
+                      md-rowspan="2"
+                      ng-mouseover="showBowerFooter = true" ng-mouseleave="showBowerFooter = false"
+                      class="md-whiteframe-z1 bower-tile">
+            <a layout="row"
+               layout-align="center center"
+               href="http://bower.io/"
+               target="_blank">
+                <img src="/p/modules/core/img/bower-logo.png">
+            </a>
+            <md-grid-tile-footer class="tile-footer" ng-show="showBowerFooter">
+                <h3>Bower</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

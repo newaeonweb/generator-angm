@@ -1,0 +1,31 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <div flex flex-gt-md="40" flex-gt-lg="30">
+        <md-toolbar class="md-accent">
+            <h1 class="md-toolbar-tools">Reset Password</h1>
+        </md-toolbar>
+
+        <md-content class="md-padding md-whiteframe-z1">
+
+            <form name="resetForm">
+                <ga-password ng-model="credentials.newPassword"
+                             input-tabindex="1"
+                             label="New Password"
+                             name="password"></ga-password>
+                <ga-password ng-model="credentials.repeatPassword"
+                             repeat-password="credentials.newPassword"
+                             name="repeatPassword"
+                             label="Repeat New Password"
+                             input-tabindex="2"></ga-password>
+                <div class="mar-top-20" layout="row" layout-align="end end">
+                    <md-button class="md-raised md-primary"
+                               type="submit"
+                               tabindex="3"
+                               ng-disabled="!resetForm.$valid || isLoading"
+                               ng-click="resetPassword()">
+                        <i class="fa fa-save btn-icon"></i> Save
+                    </md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

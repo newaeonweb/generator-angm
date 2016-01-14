@@ -1,0 +1,26 @@
+{
+  "name": "<%= slugifiedAppName %>",
+  "version": "0.0.1",<% if (appAuthor) { %>
+  "author": "<%= capitalizedAppAuthor %>",<% } %>
+  "dependencies": {
+  "font-awesome": "~4",
+  "angular": "~1.3",
+  "angular-animate": "~1.3",
+  "angular-mocks": "~1.3",
+  "angular-bootstrap": "~0.12.0",
+  "angular-ui-utils": "~0.1.1",
+  "angular-ui-router": "~0.2.13",
+  "lodash": "~3.4.0",
+  "angular-messages": "~1.3.13",
+  "angular-material": "~0.8.1",
+  "angular-aria": "~1.3.14",
+  "angular-no-captcha": "~0.3.0",
+  "lrInfiniteScroll": "~1.0.0",
+  "angulartics": "~0.17.2",
+  "restangular": "https://github.com/mgonto/restangular.git#217f8a53b242f35162c32a9130a1faa56d781658"
+  },
+  "resolutions": {
+  "lodash": "~3.4.0",
+  "angular": "~1.3"
+  }
+}

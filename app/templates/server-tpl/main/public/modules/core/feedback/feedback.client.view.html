@@ -1,0 +1,46 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <div flex flex-gt-md="90" flex-gt-lg="70">
+        <md-toolbar class="md-accent">
+            <h1 class="md-toolbar-tools">Feedback</h1>
+        </md-toolbar>
+        <md-content class="md-padding md-whiteframe-z1">
+            <form name="feedbackForm">
+                <md-input-container>
+                    <label>Your message</label>
+                    <textarea ng-model="feedback.message"
+                              name="feedback"
+                              ga-input-validator
+                              validator-category="arg"
+                              show-counter="true"
+                              required>
+                    </textarea>
+
+                    <div ng-if="feedbackForm.feedback.$dirty" ng-messages="feedbackForm.feedback.$error">
+                        <div ng-message="md-maxlength">Your message is too long</div>
+                        <div ng-message="required">Feedback message is required</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Your email (optional)</label>
+                    <input class="form-control"
+                           name="email"
+                           type="email"
+                           ng-model="feedback.email">
+
+                    <div ng-messages="feedbackForm.email.$error">
+                        <div ng-message="email">Seems like invalid email</div>
+                    </div>
+                </md-input-container>
+                <ga-captcha ng-model="feedback.captcha" ng-required="true" anonymous-only></ga-captcha>
+                <div class="mar-top-15" layout="row" layout-margin>
+                    <md-button ng-click="sendFeedback()"
+                               flex
+                               ng-disabled="!feedbackForm.$valid || isLoading"
+                               class="md-primary md-raised" aria-label="Send Feedback">
+                        <i class="fa fa-send-o btn-icon"></i> Send
+                    </md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

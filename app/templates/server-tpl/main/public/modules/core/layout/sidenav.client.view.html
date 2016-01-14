@@ -1,0 +1,52 @@
+<div data-ng-controller="SidenavController">
+    <md-toolbar>
+        <div layout="row" layout-align="center center" class="md-toolbar-tools">
+            <h1 class="nowrap">
+                <a ui-sref="home" tabindex="-1">
+                    <span class="f-400">{{ cfg.brand_name }}</span>
+                </a>
+            </h1>
+        </div>
+    </md-toolbar>
+    <md-content class="sidenav-content">
+        <div ng-if="auth.isAdmin()">
+            <md-button ui-sref="admin.appConfig">
+                <i class="fa fa-gear btn-icon"></i>
+                App Config
+            </md-button>
+            <md-divider></md-divider>
+        </div>
+        <md-button ng-show="auth.isLogged()" ui-sref="profile.view({username: auth.user.username})">
+            <i class="fa fa-user btn-icon"></i>
+            My Profile
+        </md-button>
+        <md-button ng-hide="auth.isLogged()" ui-sref="signin">
+            <i class="fa fa-sign-in btn-icon"></i>
+            Sign In
+        </md-button>
+        <md-button ng-hide="auth.isLogged()" ui-sref="signup">
+            <i class="fa fa-sign-in btn-icon"></i>
+            Sign Up
+        </md-button>
+        <md-button ui-sref="users">
+            <i class="fa fa-users btn-icon"></i>
+            Users
+        </md-button>
+        <md-button ng-show="cfg.has_feedback_form" ui-sref="feedback">
+            <i class="fa fa-comment btn-icon"></i>
+            Feedback
+        </md-button>
+        <md-button ng-show="cfg.development" ng-click="generateDatabase()">
+            <i class="fa fa-database btn-icon"></i>
+            Generate Database
+        </md-button>
+        <md-button ng-show="auth.isLogged()" ui-sref="signout" class="md-warn">
+            <i class="fa fa-sign-out btn-icon"></i>
+            Sign Out
+        </md-button>
+        <md-button hide-gt-md ng-click="closeSidenav()" class="md-primary">
+            <i class="fa fa-close btn-icon"></i>
+            Close
+        </md-button>
+    </md-content>
+</div>

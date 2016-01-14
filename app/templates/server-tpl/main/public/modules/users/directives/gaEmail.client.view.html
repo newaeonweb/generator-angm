@@ -1,0 +1,13 @@
+<md-input-container>
+    <label>{{ label }}</label>
+    <input ng-model="ngModel"
+           ng-required="{{ required }}"
+           tabindex="{{ inputTabindex }}"
+           name="{{ name }}"
+           type="email">
+
+    <div ng-if="form[name].$dirty" ng-messages="form[name].$error">
+        <div ng-message="email">Seems like invalid email</div>
+        <div ng-if="required" ng-message="required">Email is required</div>
+    </div>
+</md-input-container>

@@ -1,0 +1,14 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <div flex flex-gt-lg="80">
+
+        <md-content class="md-padding md-whiteframe-z1 no-overflow" layout="column" layout-align="start center">
+            <a ui-sref="profile.view({username: user.username})">
+                <img class="profile-pic" ng-src="{{user.avatar_url}}&s=130"/>
+            </a>
+            <a ui-sref="profile.view({username: user.username})" class="no-dec">
+                <h2 class="mar-bot-0">{{ user.username }}</h2>
+            </a>
+            <div class="profile-view w-100" ui-view></div>
+        </md-content>
+    </div>
+</div>

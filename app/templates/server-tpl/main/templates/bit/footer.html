@@ -1,0 +1,13 @@
+<footer layout="row" layout-padding class="footer" role="contentinfo">
+    <p flex layout="column" layout-align="center center">
+        # if current_user.admin
+        <small>
+            Version: {{config.CURRENT_VERSION_NAME}}
+            (
+            <time datetime="{{config.CURRENT_VERSION_DATE}}">{{config.CURRENT_VERSION_DATE}}</time>
+            )
+        </small>
+        # endif
+        <small>&copy; 2015 - {{config.CONFIG_DB.brand_name}} code is licensed under the MIT License</small>
+    </p>
+</footer>

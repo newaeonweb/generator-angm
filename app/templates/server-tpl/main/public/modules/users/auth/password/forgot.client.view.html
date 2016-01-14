@@ -1,0 +1,33 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <div flex flex-gt-md="60" flex-gt-lg="50">
+        <md-toolbar class="md-accent">
+            <h1 class="md-toolbar-tools">Forgot Password?</h1>
+        </md-toolbar>
+
+        <md-content class="md-padding md-whiteframe-z1">
+
+            <form name="forgotForm">
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="credentials.email"
+                           autofocus
+                           required
+                           name="email" type="email">
+
+                    <div ng-messages="forgotForm.email.$error">
+                        <div ng-message="email">Seems like invalid email</div>
+                    </div>
+                </md-input-container>
+                <div class="mar-top-20" layout="column" layout-gt-sm="row" layout-margin>
+                    <md-button flex ui-sref="signin">I think I know it!</md-button>
+                    <md-button flex class="md-raised md-primary"
+                               type="submit"
+                               ng-disabled="!forgotForm.$valid || isLoading"
+                               ng-click="askForNewPassword()">
+                        <i class="fa fa-send-o btn-icon"></i> Send
+                    </md-button>
+                </div>
+            </form>
+        </md-content>
+    </div>
+</div>

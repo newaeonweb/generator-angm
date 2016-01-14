@@ -1,0 +1,18 @@
+<div class="md-toolbar-tools" layout="row" layout-align="space-between center" layout-align-gt-md="end">
+
+    <md-button tabindex="-1" hide-gt-md ng-click="toggleSidenav()" aria-label="Show Menu">
+        <md-icon md-font-icon="fa fa-bars"></md-icon>
+    </md-button>
+
+    <h1 hide-gt-md>
+        <a ui-sref="home" tabindex="-1">
+            <span class="f-400">{{ cfg.brand_name }}</span>
+        </a>
+    </h1>
+
+    <a hide show-gt-sm ng-if="auth.isLogged()" ui-sref="profile.view({username : auth.user.username})"
+       layout="row" layout-align="end center">
+        <span class="mar-rig-10">{{auth.user.username}}</span>
+        <img ng-if="auth.user" class="profile-pic" ng-src="{{auth.user.avatar_url}}&s=30"/>
+    </a>
+</div>

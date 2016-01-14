@@ -1,0 +1,52 @@
+<div ng-show="user" layout="column" layout-align="start center">
+    <div layout="row" layout-margin>
+        <md-button flex ng-repeat="(socKey, soc) in getAvailableSocialAccounts()"
+                   target="_blank"
+                   aria-label="{{soc.name}}"
+                   title="{{soc.name}}"
+                   ng-href="https://{{soc.domain}}/{{user[socKey]}}">
+            <md-icon md-font-icon="fa fa-{{ socKey }}"></md-icon>
+        </md-button>
+    </div>
+    <h3 class="vmar-5" ng-if="user.name">{{ user.name }}</h3>
+    <h4 class="mar-top-5 text-center" ng-if="user.bio">{{ user.bio }}</h4>
+
+    <div class="vmar-10" ng-if="user.location">
+        <md-button class="vmar-15" target="_blank" ng-href="http://maps.google.com?q={{user.location}}">
+            <i class="fa fa-map-marker"></i> {{ user.location }}
+        </md-button>
+    </div>
+
+    <div class="vmar-10" ng-if="auth.isAdmin()">
+        <div class="mar-bot-5">Created: {{user.created | date:'medium'}}</div>
+        <div>Modified: {{user.modified | date:'medium'}}</div>
+        <div layout="row" layout-align="center center" class="mar-top-15">
+            <div ng-show="user.verified" class="hpad-15">
+                <md-icon md-font-icon="fa fa-check"></md-icon>
+                <md-tooltip>Verified</md-tooltip>
+            </div>
+            <div ng-hide="user.active" class="hpad-15">
+                <md-icon md-font-icon="fa fa-ban"></md-icon>
+                <md-tooltip>Blocked</md-tooltip>
+            </div>
+            <div ng-show="user.admin" class="hpad-15">
+                <md-icon md-font-icon="fa fa-user"></md-icon>
+                <md-tooltip>Admin</md-tooltip>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div ng-if="hasAuthorization()" layout="row" layout-margin>
+    <md-button flex class="md-warn"
+               ng-if="auth.isAdmin()"
+               ng-click="showDeleteUserDialog($event)">delete
+    </md-button>
+    <md-button flex class="md-warn" ui-sref="profile.password({username: user.username})">
+        Change Password
+    </md-button>
+    <md-button flex ui-sref="profile.edit({username: user.username})"
+               class="md-primary">Edit
+    </md-button>
+</div>

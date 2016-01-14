@@ -1,0 +1,63 @@
+.profile-pic {
+  border-radius: 100px;
+}
+
+.user-list-item {
+  .profile-pic {
+    width: 45px
+  }
+  &.ng-move,
+  &.ng-enter,
+  &.ng-leave {
+    .swift-out(0.8s);
+    position: relative;
+    display: block;
+  }
+
+  &.ng-leave.ng-leave-active,
+  &.ng-move,
+  &.ng-enter {
+    opacity: 0;
+    right: -75px;
+  }
+
+  &.ng-enter-stagger {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+  }
+
+  &.ng-leave,
+  &.ng-move.ng-move-active,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+.profile-view {  &.ng-enter, &.ng-leave {
+    .swift-out;
+  }
+
+  &.ng-enter, &.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-enter {
+    opacity: 0;
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    position: absolute;
+  }
+
+  &.ng-leave-active {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="ng-cloak" lang="en">
+<head>
+    # include 'bit/meta.html'
+    <title>{{ config.CONFIG_DB.brand_name }}</title>
+    # include 'bit/style.html'
+    # block head
+    # endblock
+    # include 'bit/analytics.html'
+</head>
+
+<body layout="row" layout-fill>
+<md-sidenav md-is-locked-open="$mdMedia('gt-md')" md-component-id="leftSidenav"
+            ng-include="'/p/modules/core/layout/sidenav.client.view.html'"
+            class="md-sidenav-left sidenav-left md-whiteframe-z2">
+</md-sidenav>
+<div layout="column" role="main" flex>
+    <md-toolbar>
+        <div ng-controller="HeaderController" ng-include="'/p/modules/core/layout/header.client.view.html'"></div>
+    </md-toolbar>
+    <md-content flex md-scroll-y
+                lr-infinite-scroll="mainContentScrolled" scroll-threshold="200"
+                class="md-padding main-content">
+        # block content
+        # endblock
+        # include 'bit/footer.html'
+    </md-content>
+</div>
+# include 'bit/script.html'
+# block scripts
+# endblock
+<script type="text/javascript">
+    var module = angular.module('<%= nameApp %>');
+    module.value('gaAuthenticatedUser', {{ user | tojson | safe }});
+    module.value('gaAppConfig', {{ app_config | tojson | safe }});
+    module.value('gaFlashMessages', {{ get_flashed_messages() | tojson | safe }});
+    module.value('gaValidators', {{ validators | tojson | safe }});
+</script>
+</body>
+</html>

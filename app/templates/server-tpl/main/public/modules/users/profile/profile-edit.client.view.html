@@ -1,0 +1,67 @@
+<form name="profileEditForm">
+    <md-input-container>
+        <label>Name</label>
+        <input ng-model="editedUser.name"
+               type="text"
+               ga-input-validator
+               validator-category="user"
+               tabindex="1"
+               name="name">
+
+        <div ng-if="profileEditForm.name.$dirty" ng-messages="profileEditForm.name.$error">
+            <div ng-message="maxlength">Your name is too long</div>
+        </div>
+    </md-input-container>
+    <ga-email ng-model="editedUser.email" input-tabindex="2"></ga-email>
+    <md-input-container>
+        <label>Bio</label>
+        <input ng-model="editedUser.bio"
+               name="bio"
+               ga-input-validator
+               validator-category="user"
+               show-counter="true"
+               tabindex="3">
+    </md-input-container>
+    <md-input-container>
+        <label>Location</label>
+        <input ng-model="editedUser.location"
+               name="location"
+               ga-input-validator
+               validator-category="user"
+               tabindex="4">
+    </md-input-container>
+    <div ng-repeat="(socKey, soc) in socialAccounts" layout="row" layout-align="start center">
+        <span class="mar-rig-5">{{soc.domain}}/</span>
+        <md-input-container flex>
+            <label>Your {{soc.name}}</label>
+            <input ng-model="editedUser[socKey]"
+                   type="text"
+                   tabindex="{{ $index + 5}}"
+                   ng-maxlength="validators.social[1]"
+                   name="{{socKey}}">
+            <div ng-if="profileEditForm[socKey].$dirty" ng-messages="profileEditForm[socKey].$error">
+                <div ng-message="maxlength">This seems to be too long for {{ soc.name }} page</div>
+            </div>
+        </md-input-container>
+    </div>
+    <div ng-if="auth.isAdmin()">
+        <md-checkbox ng-model="editedUser.verified">
+            Verified
+        </md-checkbox>
+        <md-checkbox ng-model="editedUser.active">
+            Active
+        </md-checkbox>
+        <md-checkbox ng-model="editedUser.admin">
+            Admin
+        </md-checkbox>
+    </div>
+    <div layout="row" layout-margin>
+        <md-button flex ui-sref="profile.view({username: user.username})">Cancel</md-button>
+        <md-button flex
+                   ng-click="save()"
+                   ng-disabled="!profileEditForm.$valid || isLoading || !profileEditForm.$dirty"
+                   type="submit"
+                   tabindex="11"
+                   class="md-primary">Save</md-button>
+    </div>
+</form>

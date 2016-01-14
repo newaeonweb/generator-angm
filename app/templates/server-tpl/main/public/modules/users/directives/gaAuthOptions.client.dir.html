@@ -1,0 +1,15 @@
+<h3 class="text-center">Use social accounts</h3>
+
+<div layout="row" layout-wrap layout-align="center center" class="mar-bot-20">
+    <md-button ng-repeat="opt in authOptions"
+               class="md-fab md-primary md-accent hmar-5 mar-bot-10"
+               ng-href="/signin/{{ opt }}?remember={{ remember ? 'true' : 'false' }}"
+               aria-label="Login with {{opt}}">
+        <md-icon class="mar-top-10" md-font-icon="fa fa-{{ opt }}"></md-icon>
+    </md-button>
+</div>
+<md-switch class="mar-top-20" ng-model="remember"
+           aria-label="Remember me" layout="row"
+           layout-align="center">
+    Keep me signed in
+</md-switch>

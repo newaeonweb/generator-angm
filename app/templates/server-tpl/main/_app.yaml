@@ -1,0 +1,69 @@
+application: <%= slugifiedAppName %>
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+builtins:
+- remote_api: on
+- deferred: on
+- appstats: on
+
+inbound_services:
+- warmup
+
+libraries:
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /favicon.ico
+  static_files: public/modules/core/img/favicon.ico
+  upload: public/modules/core/img/favicon.ico
+
+- url: /robots.txt
+  static_files: public/robots.txt
+  upload: public/robots.txt
+
+- url: /humans.txt
+  static_files: public/humans.txt
+  upload: public/humans.txt
+
+- url: /p/(.*\.ttf)
+  static_files: public/\1
+  upload: public/(.*\.ttf)
+  mime_type: font/ttf
+  expiration: 1000d
+
+- url: /p/
+  static_dir: public/
+  expiration: 1000d
+
+- url: /.*
+  script: main.app
+  secure: always
+
+skip_files:
+- ^(.*/)?#.*#
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?.*\.bak$
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*~
+- ^(.*/)?Icon\r
+- ^(.*/)?\..*
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^lib/.*
+- ^!(lib/font-awesome/fonts/fontawesome-webfont.woff)
+- ^!(lib/font-awesome/fonts/fontawesome-webfont2.woff)
+- ^!(lib/font-awesome/fonts/fontawesome-webfont.ttf)
+- ^public/lib/.*
+- ^public/application.js
+- ^public/modules/.*\.coffee
+- ^public/modules/.*\.css
+- ^public/modules/.*\.js
+- ^public/modules/.*\.less
+- ^public/modules/.*\.json
+- ^public/modules/.*\.html

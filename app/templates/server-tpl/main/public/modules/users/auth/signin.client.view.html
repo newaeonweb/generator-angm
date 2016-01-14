@@ -1,0 +1,45 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <div flex flex-gt-md="80" flex-gt-lg="70">
+        <md-toolbar class="md-accent">
+            <h1 class="md-toolbar-tools">Sign in</h1>
+        </md-toolbar>
+
+        <md-content class="md-padding md-whiteframe-z1">
+            <form name="signinForm">
+                <md-input-container>
+                    <label>Email or username</label>
+                    <input ng-model="credentials.login"
+                           required
+                           tabindex="1"
+                           autofocus
+                           name="login" type="text">
+
+                </md-input-container>
+                <ga-password ng-model="credentials.password"
+                             input-tabindex="2"
+                             name="password"></ga-password>
+                <ga-captcha ng-model="credentials.captcha" ng-required="true" class="mar-bot-15"
+                            control="captchaControl"></ga-captcha>
+                <div class="mar-top-20" layout="column" layout-gt-sm="row" layout-margin>
+                    <md-button flex flex-order-sm="3"
+                               tabindex="5"
+                               ui-sref="forgot">Forgot password?
+                    </md-button>
+                    <md-button flex flex-order-sm="2"
+                               tabindex="4"
+                               ui-sref="signup">Sign up
+                    </md-button>
+                    <md-button flex flex-order-sm="1"
+                               class="md-raised md-primary"
+                               ng-disabled="!signinForm.$valid || isLoading"
+                               type="submit"
+                               tabindex="3"
+                               ng-click="signin()">
+                        <i class="fa fa-sign-in btn-icon"></i>Sign In
+                    </md-button>
+                </div>
+            </form>
+            <ga-auth-options remember="credentials.remember"></ga-auth-options>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+# if config.DEVELOPMENT
+    <!-- inject:js -->
+    <script src="/p/lib/angular/angular.js"></script>
+    <script src="/p/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/p/lib/angular-animate/angular-animate.js"></script>
+    <script src="/p/lib/angular-messages/angular-messages.js"></script>
+    <script src="/p/lib/angular-aria/angular-aria.js"></script>
+    <script src="/p/lib/restangular/dist/restangular.js"></script>
+    <script src="/p/lib/angular-no-captcha/src/angular-no-captcha.js"></script>
+    <script src="/p/lib/angular-material/angular-material.js"></script>
+    <script src="/p/lib/lodash/lodash.js"></script>
+    <script src="/p/lib/lrInfiniteScroll/lrInfiniteScroll.js"></script>
+    <script src="/p/lib/angulartics/src/angulartics.js"></script>
+    <script src="/p/lib/angulartics/src/angulartics-ga.js"></script>
+    <script src="/p/application.js"></script>
+    <script src="/p/modules/admin/admin.client.module.js"></script>
+    <script src="/p/modules/core/core.client.module.js"></script>
+    <script src="/p/modules/users/users.client.module.js"></script>
+    <script src="/p/modules/admin/app-config/app-config.client.controller.js"></script>
+    <script src="/p/modules/admin/config/admin.client.routes.js"></script>
+    <script src="/p/modules/admin/layout/admin.client.controller.js"></script>
+    <script src="/p/modules/core/config/core.client.config.js"></script>
+    <script src="/p/modules/core/config/core.client.lodash.js"></script>
+    <script src="/p/modules/core/config/core.client.routes.js"></script>
+    <script src="/p/modules/core/directives/gaCaptcha.client.dir.js"></script>
+    <script src="/p/modules/core/directives/gaInputValidator.client.dir.js"></script>
+    <script src="/p/modules/core/feedback/feedback.client.controller.js"></script>
+    <script src="/p/modules/core/home/home.client.controller.js"></script>
+    <script src="/p/modules/core/layout/header.client.controller.js"></script>
+    <script src="/p/modules/core/layout/sidenav.client.controller.js"></script>
+    <script src="/p/modules/core/services/gaAuthentication.client.service.js"></script>
+    <script src="/p/modules/core/services/gaBrowserHistory.client.service.js"></script>
+    <script src="/p/modules/core/services/gaToast.client.service.js"></script>
+    <script src="/p/modules/core/services/gaTracking.client.service.js"></script>
+    <script src="/p/modules/users/auth/signin.client.controller.js"></script>
+    <script src="/p/modules/users/auth/signup.client.controller.js"></script>
+    <script src="/p/modules/users/config/users.client.routes.js"></script>
+    <script src="/p/modules/users/directives/gaAuthOptions.client.dir.js"></script>
+    <script src="/p/modules/users/directives/gaEmail.client.dir.js"></script>
+    <script src="/p/modules/users/directives/gaPassword.client.dir.js"></script>
+    <script src="/p/modules/users/profile/profile-edit.client.controller.js"></script>
+    <script src="/p/modules/users/profile/profile-password.client.controller.js"></script>
+    <script src="/p/modules/users/profile/profile.client.controller.js"></script>
+    <script src="/p/modules/users/users-list/users.client.controller.js"></script>
+    <script src="/p/modules/users/auth/password/forgot.client.controller.js"></script>
+    <script src="/p/modules/users/auth/password/reset.client.controller.js"></script>
+    <!-- endinject -->
+# else
+    <script src="/p/dist/libs.min.js?{{ config.CURRENT_VERSION_ID }}"></script>
+    <script src="/p/dist/scripts.min.js?{{ config.CURRENT_VERSION_ID }}"></script>
+    <script src="/p/dist/templates.js?{{ config.CURRENT_VERSION_ID }}"></script>
+# endif
+# if config.DEVELOPMENT
+    <script src="http://{{ request.host.split(':')[0] }}:35729/livereload.js"></script>
+# endif

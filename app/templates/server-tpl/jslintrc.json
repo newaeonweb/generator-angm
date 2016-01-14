@@ -1,0 +1,29 @@
+{
+    "predef": [ 
+        "angular", 
+        "$", 
+        "window", 
+        "_", 
+        "require", 
+        "__dirname", 
+        "module", 
+        "describe", 
+        "it", 
+        "beforeEach", 
+        "inject", 
+        "afterEach",
+        "expect",
+        "spyOn",
+        "machina",
+        "jasmine",
+        "FileReader",
+        "forge",
+        "moment",
+        "document",
+        "AppConfig",
+        "console"
+    ],
+    "nomen": true,
+    "white": true,
+    "vars": true
+}

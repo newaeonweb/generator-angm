@@ -1,0 +1,125 @@
+<form name="appConfigForm">
+    <md-tabs md-selected="tabIndex" class="app-config-content">
+        <md-tab label="General">
+            <md-content class="md-padding">
+                <md-input-container>
+                    <label>Brand name</label>
+                    <input ng-model="cfg.brand_name"
+                           tabindex="1"
+                           name="brand_name"
+                           required>
+                </md-input-container>
+                <md-input-container>
+                    <label>Description</label>
+                    <textarea ng-model="cfg.description"
+                           tabindex="2"
+                           name="description"
+                           ></textarea>
+                </md-input-container>
+                <md-input-container>
+                    <label>Feedback email</label>
+                    <input ng-model="cfg.feedback_email"
+                           tabindex="3"
+                           name="feedback_email">
+                </md-input-container>
+                <md-checkbox ng-model="cfg.notify_on_new_user" tabindex="5">
+                    Send email notification when a user signs up
+                </md-checkbox>
+                <md-checkbox ng-model="cfg.verify_email" tabindex="6">
+                    Verify user emails
+                </md-checkbox>
+            </md-content>
+        </md-tab>
+        <md-tab label="Authentications">
+            <md-content class="md-padding"
+                        md-swipe-left="next()"
+                        md-swipe-right="previous()">
+                <md-input-container ng-repeat="(authKey, auth) in getAuthOptions()">
+                    <label>
+                        <i class="fa fa-{{ getAuthName(authKey) }}"></i>
+                        {{capitalizeAuthName(authKey)}}
+                        {{isSecretKey(authKey) ? 'secret key' : 'public ID'}} </label>
+                    <input ng-model="cfg[authKey]"
+                           tabindex="$index"
+                           name="{{authKey}}">
+                </md-input-container>
+            </md-content>
+        </md-tab>
+        <md-tab label="Security">
+            <md-content class="md-padding"
+                        md-swipe-left="next()"
+                        md-swipe-right="previous()">
+                <md-input-container>
+                    <label>Flask Secret Key</label>
+                    <input ng-model="cfg.flask_secret_key"
+                           tabindex="1"
+                           name="flask_secret_key">
+                </md-input-container>
+                <md-input-container>
+                    <label>Salt</label>
+                    <input ng-model="cfg.salt"
+                           tabindex="2"
+                           name="salt">
+                </md-input-container>
+                <div>Read more about
+                    <a target="_blank" href="http://flask.pocoo.org/docs/quickstart/#sessions">Flask secret key</a>
+                    and
+                    <a target="_blank" href="http://en.wikipedia.org/wiki/Salt_%28cryptography%29">Salt in
+                        cryptography</a>
+                </div>
+            </md-content>
+        </md-tab>
+        <md-tab label="Tracking">
+            <md-content class="md-padding"
+                        md-swipe-left="next()"
+                        md-swipe-right="previous()">
+                <md-input-container>
+                    <label>Google Analytics Tracking ID</label>
+                    <input ng-model="cfg.analytics_id"
+                           tabindex="1"
+                           name="analytics_id">
+                </md-input-container>
+                Get it from <a target="_blank" href="https://www.google.com/analytics/web/">Google Analytics</a>
+            </md-content>
+        </md-tab>
+        <md-tab label="reCAPTCHA">
+            <md-content class="md-padding"
+                        md-swipe-left="next()"
+                        md-swipe-right="previous()">
+                <md-input-container>
+                    <label>Public Key</label>
+                    <input ng-model="cfg.recaptcha_public_key"
+                           tabindex="1"
+                           name="analytics_id">
+                </md-input-container>
+                <md-input-container>
+                    <label>Private Key</label>
+                    <input ng-model="cfg.recaptcha_private_key"
+                           tabindex="2"
+                           name="analytics_id">
+                </md-input-container>
+                <div class="mar-bot-20">You can obtain keys at
+                    <a target="_blank"
+                       href="https://www.google.com/recaptcha/admin#list">Google reCAPTCHA</a></div>
+                <md-checkbox ng-model="cfg.recaptcha_forms.signinForm" tabindex="3">
+                    Use in sign in form
+                </md-checkbox>
+                <md-checkbox ng-model="cfg.recaptcha_forms.signupForm" tabindex="4">
+                    Use in sign up form
+                </md-checkbox>
+                <md-checkbox ng-model="cfg.recaptcha_forms.feedbackForm" tabindex="5">
+                    Use in feedback form
+                </md-checkbox>
+
+            </md-content>
+        </md-tab>
+    </md-tabs>
+    <md-content class="md-padding pad-top-0" layout="row" layout-margin>
+        <md-button class="md-primary"
+                   flex
+                   type="submit"
+                   ng-disabled="!appConfigForm.$valid || !appConfigForm.$dirty || isLoading"
+                   ng-click="save()">Save
+        </md-button>
+    </md-content>
+</form>

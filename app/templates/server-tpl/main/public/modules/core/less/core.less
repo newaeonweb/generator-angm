@@ -1,0 +1,204 @@
+@fa-font-path: "/p/dist/fonts";
+@background-color: #edecec;
+
+body {
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: @background-color !important;
+}
+
+a {
+  color: inherit !important;
+}
+
+.md-font.fa {
+  font-size: 24px;;
+}
+
+.main-content {
+  background-color: @background-color !important;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300 !important;
+}
+
+h5, h6 {
+  font-weight: 400 !important;
+}
+
+.md-fab .fa {
+  font-size: 22px;
+}
+
+.sidenav-btn {
+  cursor: pointer;
+}
+
+.sidenav-left {
+  .sidenav-content {
+    .md-button {
+      padding-left: 20px;
+      text-align: left;
+      width: 100%;
+      height: 60px;
+      opacity: 1;
+      position: relative;
+      display: block;
+      left: 0;
+      &.ng-hide-add.ng-hide-add-active,
+      &.ng-hide-remove.ng-hide-remove-active {
+        transition: all 0.4s linear;
+      }
+      &.ng-hide {
+        opacity: 0;
+        left: -50px;
+        height: 0;
+      }
+    }
+  }
+}
+
+.angular-tile {
+  background: radial-gradient(#ff0404, #B40000);
+  img {
+    width: 70%;
+    height: auto;
+  }
+}
+
+.gae-tile {
+  background: radial-gradient(#E1F3FD, #8DD2F9);
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.material-design-tile {
+  background: radial-gradient(#cefeff, #B4E0E1);
+  img {
+    width: 60%;
+    height: auto;
+  }
+}
+
+.flask-tile {
+  background: radial-gradient(#80CBC4, #009688);
+  img {
+    width: 70%;
+    height: auto;
+  }
+}
+
+.gulp-tile {
+  background: radial-gradient(#e13d3e, #e13d3e);
+  img {
+    width: 70%;
+    height: auto;
+  }
+}
+
+.bower-tile {
+  background: radial-gradient(#FFCA28, #FF8F00);
+  img {
+    width: 65%;
+    height: auto;
+  }
+}
+
+.npm-tile {
+  background-color: #CB3837;
+  img {
+    width: 75%;
+    height: auto;
+  }
+}
+
+.github-tile {
+  .fa {
+    font-size: 30px;
+  }
+}
+
+.no-captcha {
+  display: block;
+  div {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.btn-icon {
+  padding-right: 5px;
+}
+
+.fa-microsoft {
+  &:before {
+    content: @fa-var-windows;
+  }
+}
+
+.fa-gplus {
+  &:before {
+    content: @fa-var-google;
+  }
+}
+
+section.main {
+  &.ng-enter, &.ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+  }
+
+  &.ng-enter + .footer, &.ng-leave-active + .footer {
+    opacity: 0;
+  }
+
+  &.ng-enter {
+    opacity: 0;
+
+    -webkit-transform: scale3d(0.5, 0.5, 0.5);
+    -moz-transform: scale3d(0.5, 0.5, 0.5);
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    -moz-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.ng-leave-active {
+    opacity: 0;
+    -webkit-transform: translate3d(100px, 0, 0);
+    -moz-transform: translate3d(100px, 0, 0);
+    transform: translate3d(100px, 0, 0);
+  }
+}
+
+.tile-footer {
+  opacity: 1;
+  height: 50px;
+  &.ng-hide-add.ng-hide-add-active,
+  &.ng-hide-remove.ng-hide-remove-active {
+    .swift-out
+  }
+  &.ng-hide {
+    height: 0;
+    opacity: 0;
+  }
+
+}

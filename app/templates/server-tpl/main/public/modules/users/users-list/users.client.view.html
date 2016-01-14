@@ -1,0 +1,34 @@
+<div layout="row" class="w-100" layout-align="center start">
+    <md-content flex flex-gt-lg="70" class="md-whiteframe-z1 no-overflow-x">
+
+        <md-toolbar class="md-accent">
+            <h1 class="md-toolbar-tools">Users
+                <span class="mar-lef-5" ng-show="totalCount">({{totalCount}})</span></h1>
+        </md-toolbar>
+        <md-list>
+            <md-item ng-repeat="user in users" class="user-list-item">
+                <md-divider ng-if="$first"></md-divider>
+                <md-item-content>
+                    <a ui-sref="profile.view({username: user.username})"
+                       class="md-tile-left hpad-15 vpad-15 no-dec">
+                        <img class="profile-pic" ng-src="{{user.avatar_url}}&s=45" alt="{{user.username}}"/>
+                    </a>
+
+                    <a ui-sref="profile.view({username: user.username})"
+                       class="md-tile-content no-dec">
+                        <h3>{{user.username}}</h3>
+                        <h4>{{user.name}}</h4>
+
+                        <p>
+                            {{user.bio}}
+                        </p>
+                    </a>
+
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-item>
+            <md-progress-linear ng-show="isLoading"
+                                md-mode="indeterminate" class="pad-bot-10"></md-progress-linear>
+        </md-list>
+    </md-content>
+</div>
