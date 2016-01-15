@@ -169,11 +169,13 @@ var AngmGenerator = generators.Base.extend({
 					capitalizedAppAuthor: this.capitalizedAppAuthor,
 					nameApp: this.config.get('appName'),
 					_: _,
-					slugifiedAppName: this.slugifiedName
+					slugifiedAppName: this.slugifiedAppName
 
 				}
 
 			);
+
+            console.log('1');
 
 			this.fs.copyTpl(
 				this.templatePath(pathTpl + '_bower.json'),
@@ -183,34 +185,41 @@ var AngmGenerator = generators.Base.extend({
 					capitalizedAppAuthor: this.capitalizedAppAuthor,
 					nameApp: this.config.get('appName'),
 					_: _,
-					slugifiedAppName: this.slugifiedName
+					slugifiedAppName: this.slugifiedAppName
 
 				}
 			);
 
-			//this.template(pathTpl + '_package.json', 'package.json');
-            //this.template(pathTpl + '_bower.json', 'bower.json');
+            console.log('2');
 
             this.copy(pathTpl + 'editorconfig', '.editorconfig');
             this.copy(pathTpl + 'gitignore', '.gitignore');
             this.copy(pathTpl + 'hgignore', '.hgignore');
 
+            console.log('3');
+
             this.copy(pathTpl + 'bowerrc', '.bowerrc');
+
+
             this.copy(pathTpl + 'jscsrc', '.jscsrc');
             this.copy(pathTpl + 'pylintrc', '.pylintrc');
             this.copy(pathTpl + 'jshintrc', '.jshintrc');
-            this.copy(pathTpl + 'jslintrc.json');
-            this.copy(pathTpl + 'htmlhintrc.json');
+            this.copy(pathTpl + 'jslintrc.json', 'jslintrc.json');
+            this.copy(pathTpl + 'htmlhintrc.json', 'htmlhintrc.json');
 
-            this.copy(pathTpl + 'LICENSE');
-            this.copy(pathTpl + 'README.md');
-            this.copy(pathTpl + 'bowerrc');
-            this.copy(pathTpl + 'requirements.txt');
+            console.log('4');
 
-            this.copy(pathTpl + 'gruntfile.js');
-            this.copy(pathTpl + 'gulpfile.js');
+            this.copy(pathTpl + 'LICENSE', 'LICENSE');
+            this.copy(pathTpl + 'README.md', 'README.md');
+            //this.copy(pathTpl + 'bowerrc', 'bowerrc');
+            this.copy(pathTpl + 'requirements.txt', 'requirements.txt');
 
-            this.copy(pathTpl + 'run.py');
+            this.copy(pathTpl + 'gruntfile.js', 'gruntfile.js');
+            this.copy(pathTpl + 'gulpfile.js', 'gulpfile.js');
+
+            this.copy(pathTpl + 'run.py', 'run.py');
+
+            console.log('5');
 
 
             // Copy config folder
@@ -223,6 +232,8 @@ var AngmGenerator = generators.Base.extend({
             // Public directory
             mkdirp('main/public');
             mkdirp('main/public/modules');
+
+            console.log('6');
 
 			this.fs.copyTpl(
 				this.templatePath(pathTpl + 'main/public/_application.js'),
@@ -237,9 +248,10 @@ var AngmGenerator = generators.Base.extend({
 				}
 			);
 
-            //this.template(pathTpl + 'main/public/_application.js', 'main/public/application.js');
-            this.copy(pathTpl + 'main/public/humans.txt');
-            this.copy(pathTpl + 'main/public/robots.txt');
+            console.log('7');
+
+            this.copy(pathTpl + 'main/public/humans.txt', 'main/public/humans.txt');
+            this.copy(pathTpl + 'main/public/robots.txt', 'main/public/robots.txt');
 
             // Jinja templates
 			this.fs.copyTpl(
@@ -254,15 +266,18 @@ var AngmGenerator = generators.Base.extend({
 
 				}
 			);
-            //this.template(pathTpl + 'main/templates/_base.html', 'main/templates/base.html');
-            this.copy(pathTpl + 'main/templates/index.html');
+
+            console.log('8');
+
+            this.copy(pathTpl + 'main/templates/index.html', 'main/templates/index.html');
             mkdirp('main/templates/bit');
 
             // Files in main directory
-            this.copy(pathTpl + 'main/__init__.py');
-			this.fs.copyTpl(
+            this.copy(pathTpl + 'main/__init__.py', 'main/__init__.py');
+
+            this.fs.copyTpl(
 				this.templatePath(pathTpl + 'main/_app.yaml'),
-				this.destinationPath('main/_app.yaml', 'main/app.yaml'),
+				this.destinationPath('main/app.yaml'),
 				{
 					appAuthor: this.appAuthor,
 					capitalizedAppAuthor: this.capitalizedAppAuthor,
@@ -272,13 +287,23 @@ var AngmGenerator = generators.Base.extend({
 
 				}
 			);
-            //this.template(pathTpl + 'main/_app.yaml', 'main/app.yaml');
-            this.copy(pathTpl + 'main/appengine_config.py');
-            this.copy(pathTpl + 'main/index.yaml');
-            this.copy(pathTpl + 'main/main.py');
-            this.copy(pathTpl + 'main/config.py');
-            this.copy(pathTpl + 'main/task.py');
-            this.copy(pathTpl + 'main/util.py');
+
+            console.log('9');
+
+            this.copy(pathTpl + 'main/appengine_config.py', 'main/appengine_config.py');
+
+            this.copy(pathTpl + 'main/index.yaml', 'main/index.yaml');
+            this.copy(pathTpl + 'main/main.py', 'main/main.py');
+            this.copy(pathTpl + 'main/config.py', 'main/config.py');
+            console.log('9.9');
+
+            this.fs.copy(
+            	this.templatePath(pathTpl + 'main/task.py'),
+            	this.destinationPath('main/task.py')
+            );
+            this.copy(pathTpl + 'main/util.py', 'main/util.py');
+
+
 
 
 			//mkdirp('main');
