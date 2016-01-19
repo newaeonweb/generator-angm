@@ -182,6 +182,23 @@ var ModuleGenerator = generators.Base.extend({
       }
     );
 
+	  this.fs.copyTpl(
+      this.templatePath('_karma.conf.js'),
+      this.destinationPath('karma.conf.js'),
+      {
+        arrayModules: this.config.get('modules'),
+        nameApp: this.config.get('appName'),
+        angularCookies: this.config.get('angularCookies'),
+        angularAnimate: this.config.get('angularAnimate'),
+        angularTouch: this.config.get('angularTouch'),
+        angularSanitize: this.angularSanitize,
+        _: _,
+        angularBootstrap: this.config.get('angularBootstrap'),
+        angularMaterial: this.config.get('angularMaterial')
+
+      }
+    );
+
     var getUI = this.config.get('angularMaterial');
 
     if (getUI == true) {

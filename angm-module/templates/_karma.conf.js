@@ -31,7 +31,12 @@ module.exports = function (config) {
 			'app/modules/home/homeCtrl.js',
 			'app/modules/home/homeRoute.js',
 			'app/modules/home/homeService.js',
-			'app/modules/home/home-test.js'
+			'app/modules/home/home-test.js',<% _.each(arrayModules, function(module) { %>
+			'app/modules/<%= module.name %>/<%= module.name %>Module.js',
+			'app/modules/<%= module.name %>/<%= module.name %>Ctrl.js',
+			'app/modules/<%= module.name %>/<%= module.name %>Route.js',
+			'app/modules/<%= module.name %>/<%= module.name %>Service.js',
+			'app/modules/<%= module.name %>/<%= module.name %>-test.js',<% }); %>
 		],
 
 		// Test results reporter to use
