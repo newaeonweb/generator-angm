@@ -12,7 +12,7 @@
   "angular-aria": ">=1.3.*",
 	"angular-mocks": ">=1.3.*",<% if (angularCookies) { %>
 	"angular-cookies": ">=1.3.*",<% } if (angularAnimate) { %>
-	"angular-animate": ">=1.3.*",<% } if (angularTouch) { %>
+	"angular-animate": ">=1.3.*",<% } if (angularBootstrap) { %>
 	"angular-touch": ">=1.3.*",<% } if (angularSanitize) { %>
 	"angular-sanitize": ">=1.3.*",<% } %>
   "angular-ui-router": "~0.2.10",<% if (angularBootstrap) { %>

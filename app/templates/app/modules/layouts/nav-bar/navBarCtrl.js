@@ -10,7 +10,7 @@
 	 */
 
 	angular
-		.module('lab-mendelics')
+		.module('<%= slugifiedAppName %>')
 		.controller('NavBarCtrl', NavBar);
 
 	NavBar.$inject = ['homeService', 'MenuService'];

@@ -18,7 +18,7 @@
 		'ngMdIcons',<% } %>
 		<% if (angularCookies) { %>'ngCookies',
 		<% } if (angularAnimate) { %>'ngAnimate',
-		<% } if (angularTouch) { %>'ngTouch',
+		<% } if (angularBootstrap) { %>'ngTouch',
 		<% } if (angularSanitize) { %>'ngSanitize',
 		<% } %>'ui.router',
 		'home',

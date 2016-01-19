@@ -10,7 +10,7 @@
 	 */
 
 	angular
-		.module('lab-mendelics')
+		.module('<%= slugifiedAppName %>')
 		.directive('navBar', navBar);
 
 	function navBar() {

@@ -73,11 +73,7 @@ var AngmGenerator = generators.Base.extend({
 				value: 'angularAnimate',
 				name: 'ngAnimate',
 				checked: true
-			}, {
-				value: 'angularTouch',
-				name: 'ngTouch',
-				checked: true
-			}, {
+			},{
 				value: 'angularSanitize',
 				name: 'ngSanitize',
 				checked: true
@@ -87,12 +83,10 @@ var AngmGenerator = generators.Base.extend({
 		this.prompt(prompts, function (props) {
 			this.angularCookies = _.contains(props.modules, 'angularCookies');
 			this.angularAnimate = _.contains(props.modules, 'angularAnimate');
-			this.angularTouch = _.contains(props.modules, 'angularTouch');
 			this.angularSanitize = _.contains(props.modules, 'angularSanitize');
 
 			this.config.set('angularCookies', this.angularCookies);
 			this.config.set('angularAnimate', this.angularAnimate);
-			this.config.set('angularTouch', this.angularTouch);
 			this.config.set('angularSanitize', this.angularSanitize);
 
 			done();
