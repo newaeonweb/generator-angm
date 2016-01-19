@@ -42,7 +42,16 @@ module.exports = function (config) {
 		// Test results reporter to use
 		// Possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
 		//reporters: ['progress'],
-		reporters: ['progress'],
+		reporters: ['spec'],
+
+		plugins : [
+			'karma-jasmine',
+			'karma-coverage',
+			'karma-chrome-launcher',
+			'karma-firefox-launcher',
+			'karma-phantomjs-launcher',
+			'karma-spec-reporter'
+		],
 
 		// Web server port
 		port: 9876,
