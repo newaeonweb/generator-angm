@@ -21,10 +21,7 @@
 			{"feature": "Using Controller AS syntax"},
 			{"feature": "Wrap Angular components in an Immediately Invoked Function Expression (IIFE)"},
 			{"feature": "Declare modules without a variable using the setter syntax"},
-			{"feature": "Using named functions"},
-			{"feature": "Choose between Angular Bootstrap and Angular Material UI"},
-			{"feature": "Include Dynamic Menu"},
-			{"feature": "Include Home screen templates"}
+			{"feature": "Using named functions"}
 		];
 
 		return {
