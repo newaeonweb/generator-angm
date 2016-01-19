@@ -15,7 +15,7 @@
 
 	// Injecting Denpendencies
 
-	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService'];
+	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService', '$scope'];
 	SettingsCtrl.$inject = ['$mdBottomSheet'];
 
 	/*
@@ -24,13 +24,21 @@
 	 * and bindable members up top.
 	 */
 
-	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService) {
+	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope) {
 		/*jshint validthis: true */
 		var vm = this;
 
 		vm.toggleSidenav = function (menuId) {
 			$mdSidenav(menuId).toggle();
 		};
+
+		vm.closeSidenav = function() {
+            $mdSidenav('left').close();
+        };
+
+		// Close menu on small screen after click on menu item.
+		// Only use $scope in controllerAs when necessary; for example, publishing and subscribing events using $emit, $broadcast, $on or $watch.
+		$scope.$on('$stateChangeSuccess', vm.closeSidenav);
 
 		vm.menu = MenuService.listMenu();
 
