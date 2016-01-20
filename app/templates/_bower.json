@@ -2,6 +2,12 @@
   "name": "<%= slugifiedAppName %>",
   "description": "<%= appDescription %>",
   "version": "0.0.1",
+	"install" : {
+        "path"  : {
+            "js": "app/assets/libs",
+            "css": "app/assets/css"
+        }
+    },
   "dependencies": {
     "json3": "3.3.1",
     "es5-shim": "3.1.0",<% if (angularBootstrap) { %>

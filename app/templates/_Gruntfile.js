@@ -36,17 +36,24 @@ module.exports = function (grunt) {
 			base: {
 				src: [
 					// Angular Project Dependencies,
-					'src/bower_components/angular/angular.js',
-					'src/bower_components/angular-resource/angular-resource.js',
-					'src/bower_components/angular-mocks/angular-mocks.js',
-					'src/bower_components/angular-cookies/angular-cookies.js',
-					'src/bower_components/angular-animate/angular-animate.js',
-					'src/bower_components/angular-touch/angular-touch.js',
-					'src/bower_components/angular-sanitize/angular-sanitize.js',
-					'src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-					'src/bower_components/angular-route/angular-route.js'
+					'app/app.js',
+					'app/app.config.js',
+					'app/modules/**/*Module.js',
+					'app/modules/**/*Route.js',
+					'app/modules/**/*Ctrl.js',
+					'app/modules/**/*Service.js',
+					'app/modules/**/*Directive.js'
 				],
-				dest: 'src/tmp/<%= pkg.name %>-angscript.js'
+				dest: 'app/assets/js/<%= pkg.name %>-appbundle.js'
+			},
+			build: {
+				src: [
+					// Angular Project Dependencies,
+					'app/assets/libs/angular/angular.js',
+					'app/assets/libs/**/*.js'
+
+				],
+				dest: 'app/assets/js/<%= pkg.name %>-angularbundle.js'
 			}
 		},
 
@@ -105,7 +112,7 @@ module.exports = function (grunt) {
 					'index.html': [
 						'bower.json',
 						'app/app.js',
-            'app/app.config.js',
+            			'app/app.config.js',
 						'app/**/*Module.js',
 						'app/**/*Route.js',
 						'app/**/*Ctrl.js',
@@ -114,7 +121,20 @@ module.exports = function (grunt) {
 					]
 				}
 			}
+		},
+
+		ngtemplates: {
+			app: {
+				src: 'app/modules/**/*.html',
+				dest: 'app/assets/js/templates.js',
+				options: {
+					module: '<%= pkg.name %>',
+					root: 'app/',
+					standAlone: false
+				}
+			}
 		}
+
 
 
 	});
