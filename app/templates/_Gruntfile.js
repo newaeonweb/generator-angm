@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 			'*/\n',
 
 		clean: {
-			dist: ['src/tmp']
+			dist: ['src']
 		},
 
 		jshint: {
@@ -26,6 +26,10 @@ module.exports = function (grunt) {
 			app: {
 				src: ['app/modules/**/*.js']
 			}
+		},
+
+		exec: {
+			bowerInstaller: 'bower-installer'
 		},
 
 		concat: {
@@ -107,7 +111,7 @@ module.exports = function (grunt) {
 
 		injector: {
 			options: {},
-			local_dependencies: {
+			dev: {
 				files: {
 					'index.html': [
 						'bower.json',
@@ -119,6 +123,15 @@ module.exports = function (grunt) {
 						'app/**/*Service.js',
 						'app/**/*Directive.js'
 					]
+				}
+			},
+			production: {
+				files: {
+					'index.html': [
+						'app/assets/css/**/*.css',
+						'app/assets/js/*.js'
+					]
+
 				}
 			}
 		},
@@ -148,13 +161,14 @@ module.exports = function (grunt) {
 	// Register grunt tasks
 	grunt.registerTask("build", [
 		"jshint",
+		"exec",
 		"concat",
-		"uglify",
-		"clean",
-		"injector"
+		"ngtemplates",
+		"injector:production",
+		"clean"
 	]);
 
 	// Development task(s).
-	grunt.registerTask('dev', ['injector', 'concurrent']);
+	grunt.registerTask('dev', ['injector:dev', 'concurrent']);
 
 };
