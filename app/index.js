@@ -141,6 +141,7 @@ var AngmGenerator = generators.Base.extend({
 		this.copy('app/app.js');
 		if (this.angularMaterial == true) {
 			this.template('app/modules/home/home-material.html', 'app/modules/home/home.html');
+			this.template('app/modules/home/dashboard.html', 'app/modules/home/dashboard.html');
 		} else {
 			this.copy('app/modules/home/home.html');
 		}

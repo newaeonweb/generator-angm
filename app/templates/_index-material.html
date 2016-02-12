@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        md-content.md-blue-grey-theme {
+        body, md-content.md-blue-grey-theme {
             background-color: #eee;
         }
 
@@ -45,64 +45,12 @@
     </style>
 
 </head>
-<body ng-cloak layout="row">
+<body ng-cloak>
 
 <!--Beginning-->
-<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <div ng-include="'app/modules/layouts/side-nav/sidenav.html'" ng-controller="SidenavCtrl as vm" ng-cloak ng-hide="isLogged"></div>
-</md-sidenav>
-
-<div layout="column" class="relative" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak>
-
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <md-button ng-click="layout.toggleSidenav('left')" hide-gt-md aria-label="Menu">
-                <md-icon md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
-            </md-button>
-            <h3>
-                <a href="/"><%= slugifiedAppName %></a>
-            </h3>
-            <span flex></span>
-
-            <md-menu>
-                <md-button aria-label="Open phone interactions menu" class="md-icon-button"
-                           ng-click="layout.openMenu($mdOpenMenu, $event)">
-                            <md-icon> more_vert </md-icon>
-                </md-button>
-                <md-menu-content width="4">
-                    <md-menu-item>
-                        <md-button ng-click="layout.changeProfile($event)">
-                            <md-icon>face</md-icon>
-                            Profile
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button ng-click="layout.changePassword()">
-                            <md-icon>lock</md-icon>
-                            Password
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-divider></md-menu-divider>
-                    <md-menu-item>
-                        <md-button ng-click="layout.logOut()">
-                            <md-icon>power_settings_new</md-icon>
-                            Logout
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
-        </div>
-
-    </md-toolbar>
-
-    <md-content class="md-blue-grey-theme" flex md-scroll-y>
-        <div ui-view layout="column" layout-fill layout-padding >
-
-
-        </div>
-    </md-content>
-</div>
+<div ui-view layout="row" layout-fill></div>
 <!--End-->
+
 <!--Templates. Remove then to a better location -->
 
 <script type="text/ng-template" id="tabDialog.tmpl.html">

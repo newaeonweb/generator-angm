@@ -25,7 +25,7 @@
 		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 		$urlRouterProvider
-			.otherwise('/');
+			.otherwise('/dashboard');
 
 	}
 
