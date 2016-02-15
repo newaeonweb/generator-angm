@@ -14,7 +14,6 @@ angular.module('<%= slugifiedName %>')
 		$stateProvider
 			.state('home.<%= slugifiedName %>', {
 				url:'/<%= slugifiedName %>',
-				abstract: true,
 				templateUrl: 'app/modules/<%= slugifiedName %>/<%= slugifiedName %>.html',
 				controller: '<%= slugifiedNameCapitalize %>Ctrl',
 				controllerAs: 'vm'
