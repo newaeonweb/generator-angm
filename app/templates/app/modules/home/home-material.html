@@ -1,18 +1,18 @@
 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <div ng-controller="SidenavCtrl as vm" ng-cloak ng-hide="isLogged">
+    <div ng-controller="SidenavCtrl as vm" ng-cloak>
         <md-toolbar class="md-tall md-hue-2">
             <div layout="column" class="md-toolbar-tools-bottom inset">
                 <div layout="row">
                     <div flex="80" style="margin-top: 10px;">
-                        <div>Fernando Monteiro</div>
+                        <div><%= slugifiedAppName %></div>
                     </div>
                 </div>
             </div>
         </md-toolbar>
         <md-list>
             <md-list-item ui-sref="home.dashboard">
-                <div class="inset" ng-show="item.icon">
-                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                <div class="inset">
+                    <ng-md-icon icon="apps"></ng-md-icon>
                 </div>
                 <p> Dashboard </p>
             </md-list-item>
@@ -40,7 +40,7 @@
             <md-button ng-click="layout.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                 <ng-md-icon icon="menu"></ng-md-icon>
             </md-button>
-            <h3>lab-mendelics</h3>
+            <h3><%= slugifiedAppName %></h3>
             <span flex></span>
             <md-button aria-label="Search" ng-click="showSearch = !showSearch">
                 <ng-md-icon icon="search"></ng-md-icon>

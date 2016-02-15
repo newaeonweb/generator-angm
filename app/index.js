@@ -129,7 +129,7 @@ var AngmGenerator = generators.Base.extend({
 		// Create public folders
 		mkdirp('app');
 		mkdirp('app/modules/home');
-		mkdirp('app/modules/layouts/nav-bar');
+		mkdirp('app/modules/layouts');
 		mkdirp('app/assets/images');
 		mkdirp('app/assets/fonts');
 		mkdirp('app/assets/css');
@@ -154,8 +154,8 @@ var AngmGenerator = generators.Base.extend({
 		//Copy layouts folder content
 		if (this.angularMaterial == true) {
 
-			this.copy('app/modules/layouts/page/page.html');
-			this.copy('app/modules/layouts/page/pageCtrl.js');
+			this.copy('app/modules/layouts/main-page/main-page.html');
+			this.copy('app/modules/layouts/main-page/mainPageCtrl.js');
 
 			this.copy('app/modules/layouts/side-nav/sidenav.html');
 			this.copy('app/modules/layouts/side-nav/sidenavCtrl.js');
