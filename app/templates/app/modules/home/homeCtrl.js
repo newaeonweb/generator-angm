@@ -25,7 +25,7 @@
 		/*jshint validthis: true */
 		var vm = this;
 		vm.title = "Hello, <%= slugifiedAppName %>!";
-		vm.version = "0.4.x";
+		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
 
 	}

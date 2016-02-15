@@ -114,7 +114,27 @@ var ModuleGenerator = generators.Base.extend({
 
     // Render angular module definition
     if (this.addControllerFile) this.template('_controller.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Ctrl.js');
-    if (this.addRouteFile) this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
+    if (this.addRouteFile) {
+		this.fs.copyTpl(
+			this.templatePath('_route.js'),
+			this.destinationPath('app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js'),
+			{
+				arrayModules: this.config.get('modules'),
+				nameApp: this.config.get('appName'),
+				angularCookies: this.config.get('angularCookies'),
+				angularAnimate: this.config.get('angularAnimate'),
+				angularTouch: this.config.get('angularTouch'),
+				angularSanitize: this.angularSanitize,
+				_: _,
+				angularBootstrap: this.config.get('angularBootstrap'),
+				angularMaterial: this.config.get('angularMaterial'),
+				slugifiedName: this.slugifiedName,
+				slugifiedNameCapitalize: this.slugifiedNameCapitalize
+
+			}
+		);
+	}
+	  //this.template('_route.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Route.js');
     if (this.addServiceFile) this.template('_service.js', 'app/modules/' + this.slugifiedName + '/' + this.slugifiedName + 'Service.js');
 
 	if (this.addTplFile) {
