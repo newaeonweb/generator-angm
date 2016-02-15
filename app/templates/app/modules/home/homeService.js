@@ -23,7 +23,9 @@
 			{"feature": "Declare modules without a variable using the setter syntax"},
 			{"feature": "Using named functions"},
 			{"feature": "Include UI options for Bootsrap or Material"},
-			{"feature": "Dynamic menu generator"}
+			{"feature": "Include Angular-Material-icons for Material UI"},
+			{"feature": "Dynamic menu generator for both themes"},
+			{"feature": "Grunt task for Production and Development"}
 		];
 
 		return {
