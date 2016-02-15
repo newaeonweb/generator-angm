@@ -22,6 +22,7 @@
 			{"feature": "Wrap Angular components in an Immediately Invoked Function Expression (IIFE)"},
 			{"feature": "Declare modules without a variable using the setter syntax"},
 			{"feature": "Using named functions"},
+			{"feature": "Include Unit test with Karma"},
 			{"feature": "Include UI options for Bootsrap or Material"},
 			{"feature": "Include Angular-Material-icons for Material UI"},
 			{"feature": "Dynamic menu generator for both themes"},
