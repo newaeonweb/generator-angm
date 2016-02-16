@@ -1,7 +1,7 @@
 {
-  "name": "generator-angm-material",
-  "version": "0.4.0",
-  "description": "AngularJS Yeoman Generator to scaffold modular applications.",
+  "name": "generator-angm",
+  "version": "1.0.0",
+  "description": "AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS and Angular Material to build large scale applications.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "https://github.com/newaeonweb/generator-angm",

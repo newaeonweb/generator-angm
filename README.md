@@ -1,8 +1,13 @@
 # Generator-angm [![Build Status](https://travis-ci.org/newaeonweb/generator-angm.svg?branch=master)](https://travis-ci.org/newaeonweb/generator-angm) [![NPM Downloads](http://img.shields.io/npm/dm/generator-angm.svg)](https://www.npmjs.org/package/generator-angm) [![npm version](https://badge.fury.io/js/generator-angm.svg)](http://badge.fury.io/js/generator-angm)
 
-Modular Yeoman Generator to scaffold modular AngularJS applications.
+AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS and Angular Material to build large scale applications
 
 > [Modular AngularJS Applications](http://www.newaeonweb.com.br/generator-angm) with Generator-angm
+
+# Disclaimer
+The main reason for creating this project, and do not use any other, was the need to optimize the creation time of each application from scratch.
+It was built using the best practices of development with AngularJS and uses the latest stable version (1.5.0.).
+The project does not intend to migrate to the new version(2.0) in a short time, we have in mind that this version is very stable and meets most web projects, so when version 2.0 is reasonably stable we do the migration.
 
 ## Getting Started
 
