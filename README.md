@@ -1,6 +1,8 @@
 # Generator-angm [![Build Status](https://travis-ci.org/newaeonweb/generator-angm.svg?branch=master)](https://travis-ci.org/newaeonweb/generator-angm) [![NPM Downloads](http://img.shields.io/npm/dm/generator-angm.svg)](https://www.npmjs.org/package/generator-angm) [![npm version](https://badge.fury.io/js/generator-angm.svg)](http://badge.fury.io/js/generator-angm)
 
-AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS and Angular Material to build large scale applications
+<img src="http://newaeonweb.com.br/assets/images/angm-logo.png" alt="AngularJS Modular Generator" style="width:100%">
+
+# AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS/Angular Material or Bootstrap to build large scale applications. #
 
 > [Modular AngularJS Applications](http://www.newaeonweb.com.br/generator-angm) with Generator-angm
 
@@ -12,7 +14,7 @@ The project does not intend to migrate to the new version(2.0) in a short time, 
 ## Getting Started
 
 #### Installing Yeoman
-Open your terminal window and type:
+Open your Terminal/Shell and type:
 
 ```bash
 npm install -g yo
@@ -33,30 +35,44 @@ From the command line, initiate the generator:
 yo angm
 ```
 
-## Running
-Open your terminal window and type:
+> You'll receive some prompts to fill with useful informations as Project name, author, what UI: Bootstrap or Angular Material.
+
+## Running project on development
+Open your Terminal/Shell and type:
 
 ```bash
 grunt dev
 ```
 
-After the command your application should start right in your default browser at `localhost:8000`.
-The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and others.
+After the command your application should start right in your default browser at `localhost:4000`.
 
 > NOTE: after using **yo angm** command, we recorded some useful informations on **.yo-rc.json** file created at the project root folder. So you can't execute the generator command to create the application more than one time per folder!
 
-# SubGenerators
-Generator-angm have a subgenerator to create your application modules and directives, let's what we need to do to create modules.
+## Running project on production
+Open your Terminal/Shell and type:
 
+```bash
+grunt build
+```
 
-#### Modules
-To create a module just type on your teminal window:
+The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and template cache.
+
+> NOTE: The command will concat and minify all (JS) application files and the HTML templates will be mixed in on file called `templates.js`, all this files will be injected on **index.html**.
+
+# Built in SubGenerators
+Generator-angm have a subgenerator to create your application modules and directives.
+
+1. Modules
+2. Directives
+
+## Modules
+To create a module just type on your Terminal/Shell:
 
 ```
 yo angm:angm-module
 ```
 
-After that you must entry the module name and choose what files you want.
+After that, you must entry the module name and choose what files you want to include.
 
 The subgenerator will produce the following directory structure:
 
@@ -72,9 +88,29 @@ The subgenerator will produce the following directory structure:
 
 **Note: Subgenerators are to be run from the root directory of your application.**
 
+## Directives
+To create a directive just type on your terminal window:
 
-#### Content of each created files:
-##### View (Html Template)
+```
+yo angm:angm-directive
+```
+
+After that you must entry the directive name and choose what dependencies you want, by default we using external templates and external controllers.
+
+The subgenerator will produce the following directory structure:
+
+```
+shared/
+		directives/
+			directiveName/
+				assets/ /* optional folder
+				directiveName.html
+				directiveNameCtrl.j
+				directiveName-test.js
+```
+
+# Application files:
+## View (Html Template)
 File: `app/modules/moduleName/moduleName.html`.
 
 Code:
@@ -84,7 +120,7 @@ Code:
 </div>
 ```
 ---
-##### Controller
+## Controller
 
 File: `app/modules/moduleName/moduleNameCtrl.js`.
 
@@ -111,7 +147,7 @@ angular.module('appName')
 ```
 ---
 
-##### Route
+## Route
 
 File: `app/modules/moduleName/moduleNameRoute.js`.
 
@@ -139,7 +175,7 @@ angular.module('appName')
 ```
 ---
 
-##### Module
+## Module
 
 File: `app/modules/moduleName/moduleNameModule.js`.
 
@@ -164,34 +200,95 @@ Code:
 ```
 ---
 
-#### Directives
-To create a directive just type on your terminal window:
+## App starter script
+
+File: `app/app.js`.
+
+Code:
+```javascript
+(function() {
+	'use strict';
+
+	/**
+	 * @ngdoc index
+	 * @name app
+	 * @description
+	 * # app
+	 *
+	 * Main module of the application.
+	 */
+
+	angular.module('Application name', [
+		'ngResource',
+		'ngAria',
+		 'ngMaterial',
+		'ngMdIcons',
+		'ngCookies',
+		'ngAnimate',
+		'ngSanitize',
+		'ui.router',
+		'home',
+	]);
+
+})();
 
 ```
-yo angm:angm-directive
+---
+
+## App config script
+
+File: `app/app-config.js`.
+
+Code:
+```javascript
+((function () {
+	'use strict';
+
+	/**
+	 * @ngdoc configuration file
+	 * @name app.config:config
+	 * @description
+	 * # Config and run block
+	 * Configutation of the app
+	 */
+
+
+	angular
+		.module('ang-modular')
+		.config(configure)
+		.run(runBlock);
+
+	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
+
+	function configure($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+
+		$locationProvider.hashPrefix('!');
+
+		// This is required for Browser Sync to work poperly
+		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+
+		$urlRouterProvider
+			.otherwise('/dashboard');
+
+	}
+
+	runBlock.$inject = ['$rootScope'];
+
+	function runBlock($rootScope) {
+		'use strict';
+
+		console.log('AngularJS run() function...');
+	}
+})();
 ```
+---
 
-After that you must entry the directive name and choose what dependencies you want, by default we using external templates and external controllers.
-
-The subgenerator will produce the following directory structure:
-
-```
-shared/
-		directives/
-			directiveName/
-				assets/ /* optional folder
-				directiveName.html
-				directiveNameCtrl.j
-				directiveName-test.js
-```
-
-
-
-## Injector
+# Gruntfile tasks
 By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module, directive or script.
 
 
-## Bower Components
+# Bower Components
 
 The following packages are always installed by the angm-generator:
 
@@ -202,27 +299,32 @@ The following packages are always installed by the angm-generator:
 * "angular-resource"
 * "angular-aria"
 * "angular-mocks"
+* "angular-touch"
 * "angular-bootstrap"
 * "angular-ui-router"
+
+> NOTE: Angular Material have the following dependencies:
+* angular-material-icons
+* angular-material
+* angular-messages
 
 
 The following modules are optional on first install:
 
 * "angular-cookies"
 * "angular-animate"
-* "angular-touch"
 * "angular-sanitize"
 
 All of these can be updated with `bower update` as new versions of AngularJS are released. Always on first install the generator will use the last stable version of all libraries.
 
 
-## Testing
+# Testing
 
 We implemented only one kind of test at this moment: Unit tests. On next weeks e2e tests will be available too.
 
-### Running Tests
+## Running Tests
 
-The tests are written in [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma configuration file pre-configured with some default options to run them.
+The tests are written in **Jasmine**, which we run with the [Karma Test Runner][karma]. We provide a Karma configuration file pre-configured with some default options to run them.
 
 * the configuration is found at `karma.conf.js`
 * the unit tests are found on each module created named as `moduleName-test.js`.
@@ -236,12 +338,10 @@ npm test
 This script will start the Karma test runner to execute the unit tests.
 
 
-## Contribute
+# Contribute
 
 To submitting an issue, please check if pass on travis.
-
 To submitting a bugfix, write a test that exposes the bug and fails before applying your fix.
-
 To submitting a new feature, add tests that cover the feature.
 
 
