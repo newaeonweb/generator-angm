@@ -1,6 +1,6 @@
 {
   "name": "generator-angm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS and Angular Material to build large scale applications.",
   "license": "MIT",
   "main": "app/index.js",
@@ -40,6 +40,8 @@
     "fs-extra": "~0.10.0",
     "grunt-concurrent": "^1.0.0",
     "mocha": "*",
-    "temp": "~0.8.0"
+    "temp": "~0.8.0",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.1.0"
   }
 }

@@ -1,27 +1,28 @@
 'use strict';
 
 var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
 var os = require('os');
 
 describe('angm:app', function () {
-  before(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
-      .withOptions({ 'skip-install': true })
-      .withPrompt({
-        someOption: true
-      })
-      .on('end', done);
-  });
+    before(function (done) {
+        helpers.run(path.join(__dirname, '../app'))
+        .on('end', done);
+    });
 
-  it('creates files', function () {
-    assert.file([
-      'bower.json',
-      'package.json',
-      '.editorconfig',
-      '.jshintrc'
-    ]);
-  });
+    it('creates root files', function () {
+        assert.file([
+            'bower.json',
+            '.bowerrc',
+            'package.json',
+            'Gruntfile.js',
+            'index.html',
+            '.editorconfig',
+            '.jshintrc',
+            'karma.conf.js',
+            'LICENSE.md',
+            'README.md'
+        ]);
+    });
 });
