@@ -3,17 +3,17 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.controller:HomeCtrl
+	 * @name app.controller:NavBarCtrl
 	 * @description
-	 * # HomeCtrl
+	 * # NavBarCtrl
 	 * Controller of the app
 	 */
 
 	angular
 		.module('<%= slugifiedAppName %>')
-		.controller('HomeCtrl', Home);
+		.controller('NavBarCtrl', NavBar);
 
-	Home.$inject = ['homeService'];
+	NavBar.$inject = ['homeService', 'MenuService'];
 
 	/*
 	 * recommend
@@ -21,12 +21,12 @@
 	 * and bindable members up top.
 	 */
 
-	function Home(homeService) {
+	function NavBar(homeService, MenuService) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.title = "Hello, <%= slugifiedAppName %>!";
-		vm.version = "1.0.0";
-		vm.listFeatures = homeService.getFeaturesList();
+		vm.title = "<%= slugifiedAppName %>";
+
+		vm.menu = MenuService.listMenu();
 
 	}
 

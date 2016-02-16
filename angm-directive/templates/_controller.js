@@ -1,6 +1,5 @@
-'use strict';
-
 (function() {
+	'use strict';
 
 	/**
 	* @ngdoc function
@@ -9,7 +8,8 @@
 	* # <%= slugifiedName %>Ctrl
 	* Controller of the app
 	*/
-angular
+
+	angular
 		.module('<%= nameApp %>')
 		.controller('<%= slugifiedNameCapitalize %>Ctrl', <%= slugifiedNameCapitalize %> );
 

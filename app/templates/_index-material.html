@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="<%= slugifiedAppName %>">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<base href="/">
+	<title><%= slugifiedAppName %></title>
+	<meta name="description" content="<%= appDescription %>" />
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=yes" />
+	<link rel="shortcut icon" href="app/assets/images/favicon.ico" />
+	<link rel="apple-touch-icon" href="app/assets/images/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="app/assets/images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="app/assets/images/apple-touch-icon-114x114.png" />
+	<!-- injector:css -->
+
+	<!-- endinjector -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body, md-content.md-blue-grey-theme {
+            background-color: #eee;
+        }
+
+        md-toolbar:not(.md-hue-1),
+        .md-fab {
+            fill: #fff;
+        }
+
+        md-sidenav {
+            fill: #737373;
+        }
+
+        .user-avatar {
+            border-radius: 99%;
+        }
+
+        md-toolbar.md-tall {
+            height: 64px;
+            max-height: 64px;
+            min-height: 64px;
+        }
+        code {
+		    color: #4285f4;
+		    -webkit-font-smoothing: auto;
+		    font-weight: 300;
+		    background-color: #F2F2F2;
+		    padding: 10px;
+		}
+		.text-center {
+		    text-align: center!important
+		}
+		ul {
+		    list-style: none
+		}
+    </style>
+
+</head>
+<body ng-cloak>
+
+<!--Beginning-->
+<div ui-view layout="row" layout-fill></div>
+<!--End-->
+
+<!--Templates. Remove then to a better location -->
+
+<script type="text/ng-template" id="tabDialog.tmpl.html">
+    <md-dialog
+    aria-label="Profile">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Profile Settings</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="one">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab One</h1>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                            Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales
+                            pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies
+                            mi.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="two">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Two</h1>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                            Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales
+                            pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies
+                            mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum
+                            enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida.
+                            Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a
+                            facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac
+                            lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim
+                            venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit.
+                            Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec
+                            orci posuere, nec luctus mauris semper.</p>
+
+                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec
+                            magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis.
+                            Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras
+                            ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit
+                            tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed
+                            nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere
+                            molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit
+                            erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac
+                            est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="three">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Three</h1>
+
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere
+                            molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit
+                            erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac
+                            est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')">
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;">
+                Useful
+            </md-button>
+        </md-dialog-actions>
+    </form>
+    </md-dialog>
+</script>
+<!-- End templates -->
+
+
+<!-- injector:js -->
+<!-- endinjector -->
+
+
+</body>
+</html>

@@ -10,6 +10,16 @@
 
 angular.module('<%= slugifiedName %>')
 	.config(['$stateProvider', function ($stateProvider) {
+		<% if (angularMaterial) { %>
+		$stateProvider
+			.state('home.<%= slugifiedName %>', {
+				url:'/<%= slugifiedName %>',
+				templateUrl: 'app/modules/<%= slugifiedName %>/<%= slugifiedName %>.html',
+				controller: '<%= slugifiedNameCapitalize %>Ctrl',
+				controllerAs: 'vm'
+			});
+
+		<% } else { %>
 		$stateProvider
 			.state('<%= slugifiedName %>', {
 				url:'/<%= slugifiedName %>',
@@ -17,4 +27,5 @@ angular.module('<%= slugifiedName %>')
 				controller: '<%= slugifiedNameCapitalize %>Ctrl',
 				controllerAs: 'vm'
 			});
+		<% } %>
 	}]);
