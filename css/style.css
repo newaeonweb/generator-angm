@@ -491,3 +491,13 @@ margin: 30px auto;
 #features {
     background-color: #BFE6FF;
 }
+
+#listFeatures {
+    margin-bottom: 25px;
+}
+.list-group i{
+    margin-right: 10px;
+}
+.list-group {
+    font-size: 18px;
+}
