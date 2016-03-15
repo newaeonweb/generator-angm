@@ -117,8 +117,11 @@ var AngmGenerator = generators.Base.extend({
 			this.angularMaterial = _.contains(props.ui, 'angularMaterial');
 
 
-			this.config.set('angularBootstrap', this.angularBootstrap);
-			this.config.set('angularMaterial', this.angularMaterial);
+			if (this.angularBootstrap) {
+				this.config.set('angularBootstrap', this.angularBootstrap);
+			} else {
+				this.config.set('angularMaterial', this.angularMaterial);
+			}
 
 
 			done();
