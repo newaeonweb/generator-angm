@@ -2,12 +2,12 @@
 	'use strict';
 
 	/**
-	 * @ngdoc function
-	 * @name app.test:homeTest
-	 * @description
-	 * # homeTest
-	 * Test of the app
-	 */
+	* @ngdoc function
+	* @name app.test:homeTest
+	* @description
+	* # homeTest
+	* Test of the app
+	*/
 
 	describe('homeCtrl', function () {
 		var controller = null, $scope = null, $location;
@@ -36,5 +36,3 @@
 
 	});
 })();
-
-

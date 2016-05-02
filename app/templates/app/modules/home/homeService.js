@@ -2,12 +2,12 @@
 	'use strict';
 
 	/**
-	 * @ngdoc function
-	 * @name app.service:homeService
-	 * @description
-	 * # homeService
-	 * Service of the app
-	 */
+	* @ngdoc function
+	* @name app.service:homeService
+	* @description
+	* # homeService
+	* Service of the app
+	*/
 
 	angular.module('<%= slugifiedAppName %>')
 		.factory('homeService', homeService);
@@ -34,7 +34,7 @@
 		};
 
 		function getFeaturesList() {
-			return list
+			return list;
 		}
 
 	}

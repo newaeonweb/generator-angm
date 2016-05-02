@@ -2,12 +2,12 @@
 	'use strict';
 
 	/**
-	 * @ngdoc function
-	 * @name app.controller:SidenavCtrl
-	 * @description
-	 * # SidenavCtrl
-	 * Controller of the app
-	 */
+	* @ngdoc function
+	* @name app.controller:SidenavCtrl
+	* @description
+	* # SidenavCtrl
+	* Controller of the app
+	*/
 	angular
 		.module('<%= slugifiedAppName %>')
 		.controller('SidenavCtrl', SidenavCtrl)
@@ -19,10 +19,10 @@
 	SettingsCtrl.$inject = ['$mdBottomSheet'];
 
 	/*
-	 * recommend
-	 * Using function declarations
-	 * and bindable members up top.
-	 */
+	* recommend
+	* Using function declarations
+	* and bindable members up top.
+	*/
 
 	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope) {
 		/*jshint validthis: true */
@@ -33,8 +33,8 @@
 		};
 
 		vm.closeSidenav = function() {
-            $mdSidenav('left').close();
-        };
+			$mdSidenav('left').close();
+		};
 
 		// Close menu on small screen after click on menu item.
 		// Only use $scope in controllerAs when necessary; for example, publishing and subscribing events using $emit, $broadcast, $on or $watch.
@@ -68,9 +68,9 @@
 			}).then(function (clickedItem) {
 				$mdToast.show(
 					$mdToast.simple()
-						.content(clickedItem['name'] + ' clicked!')
-						.position('top right')
-						.hideDelay(2000)
+					.content(clickedItem.name + ' clicked!')
+					.position('top right')
+					.hideDelay(2000)
 				);
 			});
 		};

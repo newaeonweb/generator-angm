@@ -8,9 +8,9 @@ module.exports = function (grunt) {
 
 		pkg: grunt.file.readJSON('package.json'),
 		banner: '/*!\n' +
-			'* <%= pkg.name %> - v<%= pkg.version %> - MIT LICENSE <%= grunt.template.today("yyyy-mm-dd") %>. \n' +
-			'* @author <%= pkg.author %>\n' +
-			'*/\n',
+		'* <%= pkg.name %> - v<%= pkg.version %> - MIT LICENSE <%= grunt.template.today("yyyy-mm-dd") %>. \n' +
+		'* @author <%= pkg.author %>\n' +
+		'*/\n',
 
 		clean: {
 			dist: ['src']
@@ -116,7 +116,7 @@ module.exports = function (grunt) {
 					'index.html': [
 						'bower.json',
 						'app/app.js',
-            			'app/app.config.js',
+						'app/app.config.js',
 						'app/**/*Module.js',
 						'app/**/*Route.js',
 						'app/**/*Ctrl.js',

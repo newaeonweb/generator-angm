@@ -107,7 +107,7 @@ var AngmGenerator = generators.Base.extend({
 			},
 				{
 					value: 'angularMaterial',
-					name: 'ngMaterial',
+					name: 'Angular Material',
 					checked: false
 				}]
 		}];
@@ -118,9 +118,10 @@ var AngmGenerator = generators.Base.extend({
 
 
 			if (this.angularBootstrap) {
-				this.config.set('angularBootstrap', this.angularBootstrap);
-			} else {
-				this.config.set('angularMaterial', this.angularMaterial);
+				this.config.set('angularBootstrap', true);
+			}
+			if (this.angularMaterial) {
+				this.config.set('angularMaterial', true);
 			}
 
 

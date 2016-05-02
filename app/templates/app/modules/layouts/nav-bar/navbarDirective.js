@@ -2,12 +2,12 @@
 	'use strict';
 
 	/**
-	 * @ngdoc function
-	 * @name app.directive:navbarDirective
-	 * @description
-	 * # navbarDirective
-	 * Directive of the app
-	 */
+	* @ngdoc function
+	* @name app.directive:navbarDirective
+	* @description
+	* # navbarDirective
+	* Directive of the app
+	*/
 
 	angular
 		.module('<%= slugifiedAppName %>')

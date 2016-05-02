@@ -6,18 +6,16 @@
 	"curly": true,
 	"eqeqeq": true,
 	"immed": true,
-	"indent": 2,
-	"latedef": true,
-	"newcap": true,
+	"latedef": false,
+	"newcap": false,
 	"noarg": true,
-	"quotmark": "single",
-	"regexp": true,
-	"undef": true,
+	"quotmark": false,
+	"undef": false,
 	"unused": false,
 	"strict": true,
 	"trailing": false,
 	"smarttabs": true,
-	"white": true,
+	"white": false,
 	"globals": {
 		"browser": false,
 		"describe": false,
@@ -27,6 +25,13 @@
 		"it": false,
 		"angular": false,
 		"window": false,
-		"app": false
+		"app": false,
+		"document": false,
+		"alert": false,
+		"jasmine": false,
+		"jquery": false,
+		"mocha": true
+
 	}
+
 }
