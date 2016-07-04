@@ -1,6 +1,6 @@
 # Generator-angm [![Build Status](https://travis-ci.org/newaeonweb/generator-angm.svg?branch=master)](https://travis-ci.org/newaeonweb/generator-angm) [![NPM Downloads](http://img.shields.io/npm/dm/generator-angm.svg)](https://www.npmjs.org/package/generator-angm) [![npm version](https://badge.fury.io/js/generator-angm.svg)](http://badge.fury.io/js/generator-angm)
 
-<img src="http://newaeonweb.com.br/assets/images/angm-logo.png" alt="AngularJS Modular Generator" style="width:100%">
+![AngularJS Modular Generator](http://newaeonweb.com.br/assets/images/angm-logo.png)
 
 # AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS/Angular Material or Bootstrap to build large scale applications. #
 
@@ -27,6 +27,14 @@ To install generator-angm from npm, run:
 ```bash
 npm install -g generator-angm
 ```
+#### Installing bower-installer
+
+```bash
+npm install -g bower-installer
+```
+> The building process will use bower-installer plugin.
+
+
 #### Starting an application
 
 From the command line, initiate the generator:
