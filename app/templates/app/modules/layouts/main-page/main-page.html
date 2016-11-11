@@ -1,18 +1,53 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <div ng-controller="SidenavCtrl as vm" ng-cloak>
+        <md-toolbar class="md-tall md-hue-2">
+            <div layout="column" class="md-toolbar-tools-bottom inset">
+                <div layout="row">
+                    <div flex="80" style="margin-top: 10px;">
+                        <div><%= slugifiedAppName %></div>
+                    </div>
+                </div>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item ui-sref="home.dashboard">
+                <div class="inset">
+                    <ng-md-icon icon="apps"></ng-md-icon>
+                </div>
+                <p> Dashboard </p>
+            </md-list-item>
+            <md-list-item ng-repeat="item in vm.menu" ng-click="vm.navigateTo('home.' + item.link)">
+                <div class="inset" ng-show="item.icon">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                </div>
+                <p > {{ item.name }}</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>Admin</md-subheader>
+            <md-list-item ng-repeat="item in vm.admin" ng-click="vm.showSettingsBottom($event)" >
+                <div class="inset">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                </div>
+                <p> {{ item.title }}</p>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-sidenav>
+
+<div layout="column" class="relative" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak>
     <md-toolbar ng-show="!showSearch">
         <div class="md-toolbar-tools">
             <md-button ng-click="layout.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                 <ng-md-icon icon="menu"></ng-md-icon>
             </md-button>
-            <h3>
-                <a href="/"><%= slugifiedAppName %></a>
-            </h3>
+            <h3><%= slugifiedAppName %></h3>
             <span flex></span>
             <md-button aria-label="Search" ng-click="showSearch = !showSearch">
                 <ng-md-icon icon="search"></ng-md-icon>
             </md-button>
             <md-menu>
                 <md-button aria-label="Open Settings" ng-click="layout.openMenu($mdOpenMenu, $event)">
-                            <md-icon> more_vert </md-icon>
+                    <md-icon> more_vert </md-icon>
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
@@ -50,12 +85,9 @@
                 <label>&nbsp;</label>
                 <input ng-model="search.who" placeholder="Search ...">
             </md-input-container>
-
         </div>
     </md-toolbar>
-    <md-content class="md-blue-grey-theme" flex md-scroll-y>
-        <ui-view layout="column" layout-fill layout-padding>
-
-
-        </ui-view>
+    <md-content layout="column" flex md-scroll-y style="background-color:#DCDCDC">
+        <div ui-view></div>
     </md-content>
+</div>
