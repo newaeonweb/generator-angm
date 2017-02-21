@@ -7,43 +7,33 @@
 > [Modular AngularJS Applications](http://www.newaeonweb.com.br/generator-angm) with Generator-angm
 
 # Disclaimer
-The main reason for creating this project, and do not use any other, was the need to optimize the creation time of each application from scratch.
-It was built using the best practices of development with AngularJS and uses the latest stable version (1.5.0.).
-The project does not intend to migrate to the new version(2.0) in a short time, we have in mind that this version is very stable and meets most web projects, so when version 2.0 is reasonably stable we do the migration.
+
+The main reason for creating this project and not using an existing one was to optimize the creation time of applications from scratch.
+
+It was built using AngularJS best practices using the latest stable version (1.5.0.).
+
+The project will not migrate to the new version of Angular (2.0) until it becomes stable. The current version is already stable and meets the needs of most web projects.
 
 ## Getting Started
 
-#### Installing Yeoman
-Open your Terminal/Shell and type:
+#### Installing dependencies
 
+Run:
 ```bash
-npm install -g yo
+npm install -g yo grunt-cli generator-angm bower-installer
 ```
 
-#### Installing the ANGM Generator
+#### Creating an application
 
-To install generator-angm from npm, run:
-
-```bash
-npm install -g generator-angm
-```
-#### Installing bower-installer
-
-```bash
-npm install -g bower-installer
-```
-> The building process will use bower-installer plugin.
-
-
-#### Starting an application
-
-From the command line, initiate the generator:
+From the command line, run the generator:
 
 ```bash
 yo angm
 ```
 
-> You'll receive some prompts to fill with useful informations as Project name, author, what UI: Bootstrap or Angular Material.
+> You'll receive prompts for your project name, author, and what UI framework to use: Bootstrap or Angular Material.
+
+> NOTE: after using **yo angm** command, we generated the **.yo-rc.json** file to prevent the generator from being run more than once.
 
 ## Running project on development
 Open your Terminal/Shell and type:
@@ -52,9 +42,7 @@ Open your Terminal/Shell and type:
 grunt dev
 ```
 
-After the command your application should start right in your default browser at `localhost:4000`.
-
-> NOTE: after using **yo angm** command, we recorded some useful informations on **.yo-rc.json** file created at the project root folder. So you can't execute the generator command to create the application more than one time per folder!
+After the command your application will launch in your default browser at `localhost:4000`.
 
 ## Running project on production
 Open your Terminal/Shell and type:
@@ -65,10 +53,11 @@ grunt build
 
 The `Gruntfile.js` already have some tasks like: Concat, Uglify, Injector and template cache.
 
-> NOTE: The command will concat and minify all (JS) application files and the HTML templates will be mixed in on file called `templates.js`, all this files will be injected on **index.html**.
+> NOTE: The command will concat and minify all (JS) application files and the HTML templates will be mixed in on file called `templates.js`, all these files will be injected on **index.html**.
 
 # Built in SubGenerators
-Generator-angm have a subgenerator to create your application modules and directives.
+
+Generator-angm has subgenerators to create your application modules and directives.
 
 1. Modules
 2. Directives
@@ -80,7 +69,7 @@ To create a module just type on your Terminal/Shell:
 yo angm:angm-module
 ```
 
-After that, you must entry the module name and choose what files you want to include.
+After that, you must enter the module name and choose what files you want to include.
 
 The subgenerator will produce the following directory structure:
 
@@ -97,13 +86,14 @@ The subgenerator will produce the following directory structure:
 **Note: Subgenerators are to be run from the root directory of your application.**
 
 ## Directives
+
 To create a directive just type on your terminal window:
 
 ```
 yo angm:angm-directive
 ```
 
-After that you must entry the directive name and choose what dependencies you want, by default we using external templates and external controllers.
+After that you must enter the directive name and choose what dependencies you want. By default we use external templates and external controllers.
 
 The subgenerator will produce the following directory structure:
 
@@ -118,7 +108,9 @@ shared/
 ```
 
 # Application files:
+
 ## View (Html Template)
+
 File: `app/modules/moduleName/moduleName.html`.
 
 Code:
@@ -127,7 +119,9 @@ Code:
 	Content from: "Page = moduleName"
 </div>
 ```
+
 ---
+
 ## Controller
 
 File: `app/modules/moduleName/moduleNameCtrl.js`.
@@ -153,6 +147,7 @@ angular.module('appName')
 	}
 
 ```
+
 ---
 
 ## Route
@@ -181,6 +176,7 @@ angular.module('appName')
 			});
 	});
 ```
+
 ---
 
 ## Module
@@ -206,6 +202,7 @@ Code:
 
  })();
 ```
+
 ---
 
 ## App starter script
@@ -241,6 +238,7 @@ Code:
 })();
 
 ```
+
 ---
 
 ## App config script
@@ -249,7 +247,7 @@ File: `app/app-config.js`.
 
 Code:
 ```javascript
-((function () {
+(function () {
 	'use strict';
 
 	/**
@@ -290,15 +288,17 @@ Code:
 	}
 })();
 ```
+
 ---
 
 # Gruntfile tasks
+
 By default, new scripts are added to the `index.html` file. Using Grunt-injector, but only on setup configuration, after that you must run `grunt injector` or `grunt dev` every time you add a new module, directive or script.
 
 
 # Bower Components
 
-The following packages are always installed by the angm-generator:
+The following packages are installed by the angm-generator:
 
 * "json3"
 * "es5-shim"
@@ -323,12 +323,12 @@ The following modules are optional on first install:
 * "angular-animate"
 * "angular-sanitize"
 
-All of these can be updated with `bower update` as new versions of AngularJS are released. Always on first install the generator will use the last stable version of all libraries.
+All of these can be updated with `bower update` as new versions of AngularJS are released. The generator will use the most recent stable version of all libraries on first install.
 
 
 # Testing
 
-We implemented only one kind of test at this moment: Unit tests. On next weeks e2e tests will be available too.
+We implemented only one kind of test at this moment: Unit tests. Future versions will implement e2e tests.
 
 ## Running Tests
 
@@ -348,9 +348,9 @@ This script will start the Karma test runner to execute the unit tests.
 
 # Contribute
 
-To submitting an issue, please check if pass on travis.
-To submitting a bugfix, write a test that exposes the bug and fails before applying your fix.
-To submitting a new feature, add tests that cover the feature.
+To submit an issue, please verify it passes its build on travis.
+To submit a bugfix, write a test that exposes the bug and fails before applying your fix.
+To submit a new feature, add tests that cover the feature.
 
 
 ## License
