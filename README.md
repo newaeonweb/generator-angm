@@ -27,6 +27,15 @@ To install generator-angm from npm, run:
 ```bash
 npm install -g generator-angm
 ```
+
+#### Installing Grunt CLI
+
+To run Grunt commands from our terminal, we'll need grunt-cli:
+
+```bash
+npm install -g grunt-cli
+```
+
 #### Installing bower-installer
 
 ```bash
