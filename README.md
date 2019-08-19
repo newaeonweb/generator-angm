@@ -1,6 +1,6 @@
 # Generator-angm [![NPM Downloads](http://img.shields.io/npm/dm/generator-angm.svg)](https://www.npmjs.org/package/generator-angm) [![npm version](https://badge.fury.io/js/generator-angm.svg)](http://badge.fury.io/js/generator-angm)
 
-![AngularJS Modular Generator](https://raw.githubusercontent.com/newaeonweb/personal-blog/images/projects/generator-angm.png)
+![AngularJS Modular Generator](./generator-angm.png)
 
 # AngularJS Yeoman Generator to help you getting started with a new project based on AngularJS/Angular Material or Bootstrap to build large scale applications. #
 
